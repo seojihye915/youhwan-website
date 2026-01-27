@@ -1,0 +1,44 @@
+[
+  {
+    "file": "starbucks.html",
+    "title": "Altitude, Microclimate, Soil - starbucks",
+    "year": 2024,
+    "thumb": "/img/thumbnail/mapping/starbucks.png"
+  },
+  {
+    "file": "dot.html",
+    "title": "Dot, Line, Plane, Line, Point",
+    "year": 2024,
+    "thumb": "/img/thumbnail/mapping/Dot.jpg"
+  },
+  {
+    "file": "asiana.html",
+    "title": "asiana",
+    "year": 2024,
+    "thumb": "/img/thumbnail/mapping/asiana.png"
+  },
+  {
+    "file": "sanctuary.html",
+    "title": "Sanctuary",
+    "year": 2024,
+    "thumb": "/img/thumbnail/mapping/sanctuary.jpg"
+  },
+  {
+    "file": "eterno.html",
+    "title": "Light festival Busan",
+    "year": 2023,
+    "thumb": "/img/thumbnail/mapping/eterno.jpg"
+  },
+  {
+    "file": "light_busan.html",
+    "title": "Light festival Busan",
+    "year": 2023,
+    "thumb": "/img/thumbnail/mapping/light_busan.jpg"
+  },
+  {
+    "file": "ulsan50.html",
+    "title": "vestiges",
+    "year": 2022,
+    "thumb": "/img/thumbnail/mapping/ulsan50.jpg"
+  }
+]

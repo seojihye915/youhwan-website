@@ -1,0 +1,253 @@
+/* ---------------------------- */
+/*       ABOUT PAGE STYLES      */
+/* ---------------------------- */
+
+:root {
+  --text-100: #ffffff;
+  --text-90: rgba(255, 255, 255, 0.9);
+  --text-88: rgba(255, 255, 255, 0.88);
+  --text-85: rgba(255, 255, 255, 0.85);
+  --text-80: rgba(255, 255, 255, 0.8);
+  --text-70: #aaa;
+  --rule: rgba(255, 255, 255, 0.12);
+}
+
+/* ---------------- */
+/* 언어 표시/숨김   */
+/* ---------------- */
+
+/* 기본: 전부 숨김 */
+.lang {
+  display: none !important;
+}
+
+/* 인라인(짧은 문구) */
+html[data-lang="ko"] .lang-ko {
+  display: inline !important;
+}
+html[data-lang="en"] .lang-en {
+  display: inline !important;
+}
+
+/* 블록(제목/문단 등) */
+.block .lang {
+  display: none !important;
+}
+html[data-lang="ko"] .block .lang-ko {
+  display: block !important;
+}
+html[data-lang="en"] .block .lang-en {
+  display: block !important;
+}
+
+/* 리스트 항목(CV/경력)은 list-item로 */
+.cv-list .lang,
+.dash-list .lang {
+  display: none !important;
+}
+html[data-lang="ko"] .cv-list .lang-ko,
+html[data-lang="ko"] .dash-list .lang-ko {
+  display: list-item !important;
+}
+html[data-lang="en"] .cv-list .lang-en,
+html[data-lang="en"] .dash-list .lang-en {
+  display: list-item !important;
+}
+
+/* ---------------- */
+/* 페이지 레이아웃  */
+/* ---------------- */
+.about-page {
+  background: #000;
+  color: #fff;
+  padding: 96px 24px 80px;
+}
+.about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* 상단 바 */
+.about-topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+.breadcrumb {
+  color: #888;
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+}
+
+/* 언어 스위치 */
+.lang-switch {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.lang-btn {
+  background: transparent;
+  color: #bbb;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+}
+.lang-btn[aria-pressed="true"] {
+  color: #111;
+  background: #fff;
+  border-color: #fff;
+  font-weight: 600;
+}
+.lang-btn:focus-visible {
+  outline: 2px solid #4c8aff;
+  outline-offset: 2px;
+}
+
+/* 헤더 */
+.about-title {
+  font-size: clamp(36px, 6vw, 68px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 4px 0 10px;
+}
+.page-number {
+  color: #b9b9b9;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* 소개 본문 */
+.about-content .intro {
+  max-width: 68ch;
+  font-size: 1.06rem;
+  line-height: 1.9;
+  color: var(--text-88);
+  margin: 18px 0 22px;
+}
+.about-content p + p {
+  margin-top: 10px;
+}
+
+/* CV – 왼쪽 라인 */
+.cv {
+  position: relative;
+  margin: 26px 0 36px;
+  padding-left: 18px;
+  border-left: 1px solid #666;
+}
+.cv-title {
+  color: var(--text-70);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 8px;
+}
+.cv-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  color: var(--text-85);
+  font-size: 0.97rem;
+  line-height: 1.8;
+  margin: 0;
+  padding: 0;
+}
+
+/* ROLES */
+.roles {
+  margin: 28px 0 20px;
+  border-top: 1px solid var(--rule);
+  padding-top: 12px;
+}
+.roles strong {
+  color: #bdbdbd;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-right: 14px;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+}
+.roles-list {
+  display: flex;
+  flex-direction: column; /* 언어 블록별 줄분리 */
+  gap: 6px;
+}
+.roles-list .role {
+  display: block; /* 역할 줄바꿈 */
+  color: #d9d9d9;
+  font-size: 0.95rem;
+}
+
+/* 3열 그리드 */
+.columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+  margin: 12px 0 0;
+}
+.column h4 {
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  margin: 0 0 10px;
+  color: #e9e9e9;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 8px;
+}
+
+/* 리스트 공통 */
+.dash-list {
+  display: grid;
+  gap: 10px;
+  padding-left: 0;
+  margin: 14px 0 0;
+  list-style: none;
+}
+.dash-list li {
+  position: relative;
+  padding-left: 14px;
+  color: var(--text-85);
+  font-size: 0.95rem;
+  line-height: 1.7;
+
+  /* 최대 3줄 말줄임 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: calc(1.7em * 3);
+}
+.dash-list li::before {
+  content: " · ";
+  position: absolute;
+  left: 0;
+  top: 0;
+  color: #777;
+}
+
+/* 하단 리스트: 3개만 보이기 (원하면 제거) */
+.dash-list.compact-3 li:nth-child(n + 4) {
+  display: none;
+}
+
+/* 반응형 */
+@media (max-width: 980px) {
+  .columns {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (max-width: 640px) {
+  .about-page {
+    padding: 84px 16px 64px;
+  }
+  .columns {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+  .about-content .intro {
+    max-width: 100%;
+  }
+}

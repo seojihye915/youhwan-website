@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>vestiges — YOUHWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager-media.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <div class="spacer" aria-hidden="true"></div>
+
+      <header class="work-head">
+        <nav class="crumb">
+          <a href="/media-facade.html">MEDIA FACADE</a> / vestiges
+        </nav>
+        <h1>
+          Ulsan Bangudae Petroglyphs 50th Anniversary“Petroglyphs and Sacred
+          Space”
+        </h1>
+        <div class="meta">Media Facade · 2022 · Ulsan, KR</div>
+      </header>
+      <ul class="credits">
+        <!-- <li>Art Director: 유환 (HWAN)</li> -->
+        <li>Media artist : 유환 (YOUHWAN)</li>
+        <li>Sound: Neo303</li>
+        <li>Art production company: Aplan company</li>
+        <li>Venue: Ulsan City Council</li>
+      </ul>
+      <!-- ...비디오/설명/스틸컷... -->
+      <!-- 비디오1 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="y4zwJ2jqa94"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/y4zwJ2jqa94/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <section class="desc">
+        <h5>vestiges'</h5>
+        <p>
+          In the cycle where countless traces are erased and born anew, we exist
+          within the irony of both forgetting and learning. All emotions and the
+          marks of time, too, dwell within the irony of essence. <br />
+        </p>
+      </section>
+      <!-- 비디오2 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="Jd3vMjGJet4"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/Jd3vMjGJet4/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 스틸컷 -->
+      <section class="stills">
+        <img
+          src="../img/work-facade/ulsan50/VESTIGES1.jpg"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-facade/ulsan50/VESTIGES2.jpg"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-facade/light_busan/해운대 라이팅3.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="/media-facade/html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+    </main>
+    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+        const id = btn.dataset.yt;
+        const wrapper = btn.parentElement; // .ratio
+        wrapper.innerHTML = `
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+                  title="${btn.dataset.title || "Video"}"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>`;
+      });
+    </script>
+  </body>
+</html>

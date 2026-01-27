@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Altitude, Microclimate, Soil / starbucks — HWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager-media.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <div class="spacer" aria-hidden="true"></div>
+
+      <header class="work-head">
+        <nav class="crumb">
+          <a href="/media-facade.html">MEDIA FACADE</a> / Altitude,
+          Microclimate, Soil
+        </nav>
+        <h1>Altitude, Microclimate, Soil with starbucks</h1>
+        <div class="meta">Media Facade · 2024 · Chuncheon, KR</div>
+      </header>
+
+      <!-- ...비디오/설명/스틸컷... -->
+      <ul class="credits">
+        <li>Art Director: 유환 (YOUHWAN)</li>
+        <li>Media artist : 유환 (YOUHWAN)</li>
+        <!-- <li>Sound: Neo303</li> -->
+        <li>Art production company: Aplan company</li>
+        <li>Venue: 스타벅스 더춘천의암호R점</li>
+      </ul>
+      <!-- 비디오1 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="yaj49KMpqtc"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/yaj49KMpqtc/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <section class="desc">
+        <h5>Altitude</h5>
+        <p>
+          Coffee grown at high altitudes possesses a special depth and
+          distinctive flavor, much like the stars that adorn the night sky. This
+          section highlights Starbucks‘ artistry in coffee and how it invites us
+          into a profound world of contemplation. As we gaze at the
+          constellations above, a single cup of coffee guides us into the
+          serenity of our inner world. In this moment, the unique aroma and
+          taste of coffee awaken our imagination, offering a time to deeply
+          explore the direction and meaning of life.
+        </p>
+      </section>
+      <!-- 비디오2 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="rw3gvVhQHw0"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/rw3gvVhQHw0/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 설명 -->
+      <section class="desc">
+        <h5>Microclimate</h5>
+        <p>
+          Microclimate is an important factor that determines the environment in
+          which coffee trees grow. The greenery, freshness, and pure atmosphere
+          visually represent the fresh air and sense of freedom found in
+          coffee-growing regions. It highlights moments of freedom, healing, and
+          liberation within the refreshing embrace of nature. It offers peaceful
+          moments connected to nature in the midst of our everyday life journey.
+        </p>
+      </section>
+      <!-- 비디오3 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="LBEVr4iWD6g"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/LBEVr4iWD6g/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 설명 -->
+      <section class="desc">
+        <h5>Soil: The Resonance of Colors Infused with Inspiration</h5>
+        <p>
+          “Soil” represents the origin of life and the foundation from which the
+          coffee tree grows. The rich palette of colors reflects the vitality of
+          the soil—imbued with the values of Starbucks. The vivid energy of
+          these botanical tones evokes new senses and inspiration. When the
+          colors come together in harmony, the beauty of life begins to shine.
+          This work marks the beginning of a journey—discovering life’s beauty
+          through the vibrant hues and vitality found in a single cup of coffee.
+        </p>
+      </section>
+      <!-- 스틸컷 -->
+      <section class="stills">
+        <img
+          src="../img/work-facade/starbucks/insta altitude 표지이미지_00846.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-facade/starbucks/microclimate_1.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-facade/starbucks/microclimate_2.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-facade/starbucks/스타벅스_microclimate_표지_00081.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-facade/starbucks/유튜브 표지_00081 (1) (1).png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="../media-facade.html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+    </main>
+    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+        const id = btn.dataset.yt;
+        const wrapper = btn.parentElement; // .ratio
+        wrapper.innerHTML = `
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+                  title="${btn.dataset.title || "Video"}"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>`;
+      });
+    </script>
+  </body>
+</html>

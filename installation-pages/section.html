@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Line of Tangible Extension — HWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <!-- 고정 헤더 높이만큼 여백 -->
+      <div class="spacer" aria-hidden="true"></div>
+
+      <!-- 빵크럼/타이틀 -->
+      <header class="work-head">
+        <nav class="crumb">
+          <a href="/installation.html">LIGHTING ART</a> / Line of Tangible
+          Extension
+        </nav>
+        <h1>Line of Tangible Extension</h1>
+        <div class="meta">Installation · 2024 · Suwon, KR</div>
+      </header>
+      <ul class="credits">
+        <li>Art Director: 유환 (YOUHWAN)</li>
+        <li>Media artist : 유환 (YOUHWAN)</li>
+        <li>Sound: Neo303</li>
+        <li>
+          Venue: Section (293, Sinnaman-gil, Namyang-eup, Hwaseong-si,
+          Gyeonggi-do, Republic of Korea)
+        </li>
+      </ul>
+      <!-- 비디오 ‘클릭 시 YouTube 로드’  -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="deVlFodeUCY"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/deVlFodeUCY/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 비디오2 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="ypGDdKJvU0A"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/ypGDdKJvU0A/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 비디오3 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="6UqNHpHNfVQ"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/6UqNHpHNfVQ/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 설명 -->
+      <section class="desc">
+        <h5>실재의 오선지 #3 (Lines of Tangible Extension #3)</h5>
+        <p>
+          사계를 겪는 무작위의 파동 속에, 서 있는 철골들은 악보의 오선과 같다.
+          땅을 딛고 하늘을 향해 세워진 무한의 오선들은 날것의 악보이다. 나무가
+          되어 바람을 공명하며, 새가 되어 빛을 지저귄다. 규율과 비 규율 속에서
+          조화를 이루는 빛,소리,형태는 증폭, 감쇠, 생성, 소멸을 반복하며
+          시각적인 주파수가 되어 대상을 실재화 시킨다.
+          <br />
+          <br />
+          Amidst the random waves of the passing seasons, the standing steel
+          frames resemble the staves of a musical score. Rising from the earth
+          and reaching towards the sky, these infinite lines are raw musical
+          scores. Becoming trees resonating with the wind, becoming birds
+          chirping with light. Light, sound, and form harmonize within both
+          order and disorder, amplifying, attenuating, generating, and
+          dissolving repeatedly, transforming into visual frequencies, thereby
+          manifesting the object into reality.
+        </p>
+      </section>
+
+      <!-- 스틸컷 -->
+      <section class="stills">
+        <img
+          src="../img/work/section/섹션1.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="../img/work/section/섹션2.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work/section/섹션3.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="/installation.html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+      <div class="bottom-space" aria-hidden="true"></div>
+    </main>
+
+    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+        const id = btn.dataset.yt;
+        const wrapper = btn.parentElement; // .ratio
+        wrapper.innerHTML = `
+          <div class="ratio">
+            <iframe
+              src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+              title="${btn.dataset.title || "Video"}"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>`;
+      });
+    </script>
+  </body>
+</html>

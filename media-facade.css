@@ -1,0 +1,46 @@
+.installation-page {
+  padding: 100px 2rem 2rem;
+  background-color: black;
+  color: white;
+  font-family: "Space Mono", monospace;
+}
+
+/* 상단 탭 메뉴 */
+.sub-menu {
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.sub-menu a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.2rem;
+  position: relative;
+  padding-bottom: 5px;
+}
+
+.sub-menu a.active::after,
+.sub-menu a:hover::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background-color: white;
+}
+
+/* 본문 */
+.installation-content {
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cycle — HWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <!-- 고정 헤더 높이만큼 여백 -->
+      <div class="spacer" aria-hidden="true"></div>
+
+      <!-- 빵크럼/타이틀 -->
+      <header class="work-head">
+        <nav class="crumb">
+          <a href="/installation.html">LIGHTING ART</a> / Cycle
+        </nav>
+        <h1>Cycle</h1>
+        <div class="meta">Installation · 2024 · Suwon, KR</div>
+      </header>
+      <ul class="credits">
+        <li>Art Director: 유환 (HWAN)</li>
+        <li>Media artist : 유환 (HWAN)</li>
+        <li>Sound: Neo303</li>
+        <li>
+          Venue: Section (293, Sinnaman-gil, Namyang-eup, Hwaseong-si,
+          Gyeonggi-do, Republic of Korea)
+        </li>
+      </ul>
+      <!-- 비디오1 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="CDEBtPrADTY"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/CDEBtPrADTY/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 비디오2 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="5gha_ZQT_VE"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/5gha_ZQT_VE/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 비디오3 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="5SGjOkXsAlE"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/5SGjOkXsAlE/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 설명 -->
+      <section class="desc">
+        <h5>Cycle</h5>
+        <p>
+          "궤도"는 분열의 속도와 함께 탄생하는 것, 그리고 부조화의 향연 속에서
+          어우러지는 조화의 존재의미를 담아낸다. 우리가 경험하는 삶의 운동과
+          우주의 운동 사이의 유사성과 연결을 통해 우리의 존재와 의미에 대한
+          질문을 제기한다. 감성과 사유, 그리고 아름다움과 모순 사이에서의 궤도를
+          탐색하여 우리 내면의 더 깊은 심층속을 바라보도록 이끈다. <br />
+          <br />
+          "Cycle"encapsulates the essence of emergence alongside the velocity of
+          divergence, as well as the significance of harmony merging within the
+          spectacle of discord. It prompts questions about our existence and
+          meaning by exploring the similarity and connection between the
+          movements of life we experience and those of the universe. By delving
+          into the orbit between emotion and reason, beauty and contradiction,
+          it guides us to gaze into the deeper depths of our inner selves./p>
+        </p>
+      </section>
+
+      <!-- 스틸컷 -->
+      <section class="stills">
+        <img
+          src="../img/work/cycle/섹션 1.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="../img/work/cycle/섹션 2.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work/cycle/섹션 3.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work/cycle/섹션 4.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work/cycle/섹션5.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work/cycle/섹션 6.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="../installation.html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+      <div class="bottom-space" aria-hidden="true"></div>
+    </main>
+
+    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+        const id = btn.dataset.yt;
+        const wrapper = btn.parentElement; // .ratio
+        wrapper.innerHTML = `
+          <div class="ratio">
+            <iframe
+              src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+              title="${btn.dataset.title || "Video"}"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+          </div>`;
+      });
+    </script>
+  </body>
+</html>

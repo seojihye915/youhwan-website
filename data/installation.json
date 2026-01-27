@@ -1,0 +1,44 @@
+[
+  {
+    "file": "tunnel.html",
+    "title": "Tunnel of Light",
+    "year": 2025,
+    "thumb": "/img/thumbnail/installation/tunnel.png"
+  },
+  {
+    "file": "rebirth.html",
+    "title": "Rebirth (Peugeot)",
+    "year": 2025,
+    "thumb": "/img/thumbnail/installation/peugeot.png"
+  },
+  {
+    "file": "sanctuary.html",
+    "title": "Sanctuary",
+    "year": 2024,
+    "thumb": "/img/thumbnail/installation/sanctuary.png"
+  },
+  {
+    "file": "DCSC.html",
+    "title": "D.C.S.C",
+    "year": 2024,
+    "thumb": "/img/thumbnail/installation/dcsc.jpg"
+  },
+  {
+    "file": "section.html",
+    "title": "Lines of Tangible Extension, section",
+    "year": 2024,
+    "thumb": "/img/thumbnail/installation/section.jpg"
+  },
+  {
+    "file": "cycle.html",
+    "title": "Cycle, section",
+    "year": 2024,
+    "thumb": "/img/thumbnail/installation/cycle.jpg"
+  },
+  {
+    "file": "send.html",
+    "title": "Send and Receive, VJING Audio visual Media art",
+    "year": 2022,
+    "thumb": "/img/thumbnail/installation/send.jpg"
+  }
+]

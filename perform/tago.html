@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>TAGO : The Drum Shaman — HWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager-perform.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <div class="spacer" aria-hidden="true"></div>
+
+      <header class="work-head">
+        <nav class="crumb">
+          <a href="/performance.html">PERFORMANCE</a> / TAGO : The Drum Shaman
+        </nav>
+        <h1>TAGO : The Drum Shaman</h1>
+        <div class="meta">Performance · 2024 · Seoul, KR</div>
+      </header>
+      <ul class="credits">
+        <li>Media artist : 유환 (YOUHWAN)</li>
+        <li>artist : 남화연</li>
+        <li>sound : Tago</li>
+        <li>Art production company: Aplan company</li>
+        <!-- <li>Venue: Jeonju Jeondong Catholic Cathedral</li> -->
+      </ul>
+      <!-- ...비디오/설명/스틸컷... -->
+      <!-- 비디오2 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="m32N41elzxg"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/m32N41elzxg/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 설명 -->
+      <section class="desc">
+        <h5>TAGO : The Drum Shaman</h5>
+        <p>live audio visual</p>
+      </section>
+      <!-- 스틸컷 -->
+      <section class="stills">
+        <img
+          src="../img/work-perform/tago/타고.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/tago/혼고1_04547.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/tago/혼고2_05013.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/tago/혼고3_07725.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/tago/혼고4_06169.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/tago/혼고5_04411.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/tago/혼고6_07725.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="/performance.html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+    </main>
+    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+        const id = btn.dataset.yt;
+        const wrapper = btn.parentElement; // .ratio
+        wrapper.innerHTML = `
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+                  title="${btn.dataset.title || "Video"}"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>`;
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,993 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>빛의 터널 — 전시 안내 | YOUHWAN</title>
+
+    <!-- 공통 리소스(있으면 유지) -->
+    <link rel="stylesheet" href="style.css" />
+    <script src="js/load-header.js" defer></script>
+
+    <style>
+      /* ===== About 톤과 일치 ===== */
+      :root {
+        --bg: #0b0b0b;
+        --text: #f5f5f5;
+        --muted: #aaaaaa;
+        --line: #262626;
+        --chip: #1a1a1a;
+        --accent: #ff2e2e;
+      }
+      html,
+      body {
+        background: var(--bg);
+        color: var(--text);
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      /* 기본 레이아웃 */
+      .wrap {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+      @media (min-width: 1280px) {
+        .wrap {
+          max-width: 1200px;
+          padding: 0 32px;
+        }
+      }
+      @media (max-width: 980px) {
+        .wrap {
+          max-width: 90%;
+          padding: 0 20px;
+        }
+      }
+      @media (max-width: 640px) {
+        .wrap {
+          max-width: 100%;
+          padding: 0 16px;
+        }
+      }
+
+      .top-space {
+        height: 96px;
+      } /* 고정 헤더 여백 */
+
+      /* 헤더 타이틀 + 언어칩 */
+      .page-head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 12px 0 8px;
+      }
+      .title {
+        font-size: 42px;
+        font-weight: 800;
+        letter-spacing: 0.2px;
+      }
+      .lang-switch {
+        margin-left: auto;
+        display: flex;
+        gap: 8px;
+      }
+      .chip {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 52px;
+        height: 36px;
+        padding: 0 14px;
+        border-radius: 18px;
+        background: var(--chip);
+        border: 1px solid var(--line);
+        color: var(--text);
+        font-weight: 700;
+        letter-spacing: 0.2px;
+        cursor: pointer;
+        user-select: none;
+      }
+      .chip.active {
+        background: #fff;
+        color: #000;
+        border-color: #fff;
+      }
+
+      .subtitle {
+        color: var(--muted);
+        line-height: 1.8;
+        margin-top: 14px;
+        font-size: 16px;
+      }
+      .hr {
+        height: 1px;
+        background: var(--line);
+        margin: 28px 0;
+      }
+      section h2 {
+        font-size: 22px;
+        font-weight: 800;
+        margin-bottom: 10px;
+      }
+      section p,
+      section li {
+        color: #e5e5e5;
+        line-height: 1.85;
+        font-size: 16px;
+      }
+      .muted {
+        color: var(--muted);
+      }
+      .list {
+        margin: 8px 0 0 0;
+        padding: 0 0 0 1.1em;
+      }
+
+      /* 버튼 */
+      .btn {
+        display: inline-block;
+        padding: 12px 18px;
+        border-radius: 999px;
+        border: 1px solid #fff;
+        color: #000;
+        background: #fff;
+        font-weight: 700;
+      }
+      .btn.ghost {
+        background: transparent;
+        color: var(--text);
+        border-color: var(--line);
+      }
+      .btn-row {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-top: 14px;
+      }
+
+      /* 히어로 */
+      .hero {
+        position: relative;
+        overflow: hidden;
+        border-radius: 16px;
+        margin-top: 10px;
+        background: radial-gradient(
+          1200px 300px at 50% 120%,
+          #1a1a1a 0%,
+          #0b0b0b 60%
+        );
+        padding: 36px 24px 56px;
+      }
+      .hero h2 {
+        font-size: 26px;
+        margin: 0 0 8px;
+      }
+      .hero-strap {
+        color: var(--muted);
+      }
+      .lines {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        mask-image: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.3),
+          rgba(0, 0, 0, 1)
+        );
+      }
+      .line {
+        position: absolute;
+        left: -30%;
+        width: 160%;
+        height: 1px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--accent),
+          transparent
+        );
+        opacity: 0.55;
+        filter: blur(0.2px);
+        animation: flow 6s linear infinite;
+      }
+      .line:nth-child(1) {
+        top: 30%;
+        animation-delay: 0s;
+      }
+      .line:nth-child(2) {
+        top: 45%;
+        animation-delay: 0.8s;
+      }
+      .line:nth-child(3) {
+        top: 60%;
+        animation-delay: 1.6s;
+      }
+      .line:nth-child(4) {
+        top: 72%;
+        animation-delay: 2.3s;
+      }
+      @keyframes flow {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(25%);
+        }
+      }
+
+      /* Flow */
+      .flow {
+        display: flex;
+        gap: 32px;
+        overflow-x: auto;
+        padding: 4px 2px 10px;
+        scroll-snap-type: x mandatory;
+      }
+      .flow-step {
+        min-width: 260px;
+        border-left: 2px solid var(--accent);
+        padding-left: 14px;
+        scroll-snap-align: start;
+      }
+      .flow-step .label {
+        font-weight: 800;
+        color: var(--accent);
+        display: block;
+        margin-bottom: 6px;
+        letter-spacing: 0.2px;
+      }
+      .flow-note {
+        color: var(--muted);
+        font-size: 14px;
+        margin-top: 6px;
+      }
+
+      /* Schedule */
+      .sch-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+      }
+      .sch {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 12px 12px 10px;
+      }
+      .sch h3 {
+        font-size: 16px;
+        margin: 0 0 10px;
+        color: #fff;
+      }
+      .chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .t {
+        border: 1px solid #444;
+        border-radius: 18px;
+        padding: 8px 12px;
+        font-variant-numeric: tabular-nums;
+      }
+      .t.next {
+        border-color: #fff;
+        background: #fff;
+        color: #000;
+        font-weight: 800;
+      }
+
+      @media (max-width: 720px) {
+        .title {
+          font-size: 34px;
+        }
+        .sch-wrap {
+          grid-template-columns: 1fr;
+        }
+        .flow {
+          display: block;
+          overflow: visible;
+        }
+        .flow-step {
+          min-width: unset;
+          margin-bottom: 18px;
+        }
+      }
+
+      /* 언어 표시 제어 — pill/inline에도 확실히 적용 */
+      .lang-ko:not(.show),
+      .lang-en:not(.show) {
+        display: none !important;
+      }
+
+      /* Exhibition meta bar */
+      .meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 2px 0 14px;
+        flex-wrap: wrap;
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: var(--chip);
+        border: 1px solid var(--line);
+        color: var(--text);
+        font-weight: 700;
+        font-size: 13px;
+      }
+      .meta .dates {
+        color: var(--muted);
+        font-size: 14px;
+      }
+
+      .flow-video {
+        margin-top: 24px;
+        text-align: center;
+        margin-bottom: 32px; /* ✅ 아래 여백 추가 */
+      }
+
+      .flow-video video {
+        max-width: 100%;
+        border-radius: 12px;
+        /* border: 1px solid var(--line); */
+        /* box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); */
+        display: block;
+        margin: 0 auto;
+      }
+      /* ===== Credits (후원/협력) ===== */
+      .credits {
+        border-top: 1px solid var(--line);
+        margin: 8px 0 64px;
+        padding: 20px 0 0;
+      }
+
+      .credits h3 {
+        font-size: 16px;
+        font-weight: 800;
+        margin: 0 0 14px;
+        color: #eaeaea;
+        letter-spacing: 0.02em;
+      }
+
+      .credits-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 2fr; /* 레이블/내용 비율 */
+        column-gap: 24px;
+        row-gap: 10px;
+      }
+
+      .credits .label {
+        color: var(--muted);
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        white-space: nowrap;
+      }
+
+      .credits .value {
+        color: #ddd;
+        line-height: 1.7;
+      }
+
+      .credits .value span + span {
+        margin-left: 10px;
+      }
+
+      /* 핸들/링크 가벼운 스타일 (선택) */
+      .credits a {
+        color: #cfcfcf;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+
+      /* 모바일 스택 */
+      @media (max-width: 720px) {
+        .credits-grid {
+          grid-template-columns: 1fr;
+          row-gap: 6px;
+        }
+        .credits .label {
+          margin-top: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 고정 헤더 -->
+    <div id="site-header"></div>
+    <div class="top-space" aria-hidden="true"></div>
+
+    <main class="wrap">
+      <!-- 타이틀 + 언어 토글 -->
+      <div class="page-head">
+        <h1 class="title">빛의 터널 (Tunnel of Light)</h1>
+        <div class="lang-switch" role="tablist" aria-label="Language Switch">
+          <button
+            class="chip active"
+            role="tab"
+            aria-selected="true"
+            id="tab-kr"
+            onclick="setLang('ko')"
+            type="button"
+          >
+            KR
+          </button>
+          <button
+            class="chip"
+            role="tab"
+            aria-selected="false"
+            id="tab-en"
+            onclick="setLang('en')"
+            type="button"
+          >
+            EN
+          </button>
+        </div>
+      </div>
+
+      <!-- Exhibition meta (festival + dates) -->
+      <div class="meta">
+        <!-- KR -->
+        <span class="pill lang-ko" aria-label="festival"
+          >서울 라이트 한강 빛섬 축제</span
+        >
+        <span class="dates lang-ko" aria-label="dates"
+          >2025.10.03 – 2025.10.12</span
+        >
+        <!-- EN -->
+        <span class="pill lang-en" aria-label="festival"
+          >Seoul Light Hangang Bitseom Festival</span
+        >
+        <span class="dates lang-en" aria-label="dates"
+          >Oct 3 – Oct 12, 2025</span
+        >
+      </div>
+
+      <!-- ========== 한국어 ========== -->
+      <article class="lang-ko" lang="ko" aria-labelledby="tab-kr">
+        <!-- Hero -->
+        <section class="hero" aria-label="intro">
+          <h2>Where does essence move?</h2>
+          <p class="hero-strap">
+            자양역 고가 하부의 장소특정적 설치. 열차 출발과 함께 시작된 진동과
+            소리는 빛과 데이터로 치환되며, 관객은 두 개의 터널을 지나며 물리적
+            이동이 <span class="muted">감각적 빛의 흐름</span>으로 전환되는
+            과정을 경험합니다.
+          </p>
+          <div class="lines" aria-hidden="true">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Overview -->
+        <section aria-labelledby="about-ko">
+          <h2 id="about-ko">작품 설명</h2>
+          <p>
+            《Tunnel of Light》는 자양역 고가 하부에 설치된 장소특정적 미디어
+            작업으로, 산업화 이후 중첩된 <strong>물리적 이동</strong>과
+            <strong>디지털 연결</strong>의 환경 속에서 “우리는 어디에 있으며
+            어떻게 존재해야 하는가”라는 질문에서 출발합니다.
+          </p>
+          <p>
+            작품은 지하철이 자양역에서 청담역 방면으로 출발하는 순간 시작됩니다.
+            열차의 <strong>진동과 소리</strong>가 <strong>빛과 데이터</strong>로
+            치환되며, 관객은 두 개의 터널—<strong>라이팅 터널</strong>과
+            <strong>레이저 터널</strong>—을 차례로 통과하게 됩니다.
+          </p>
+          <p>
+            <em>라이팅 터널</em>은 아날로그와 디지털 세계 사이에서 ‘머무름과
+            존재의 감각’을 교차시킨 공간입니다. 아날로그 공간이 주는 우연한
+            발견과 몰입, 있는 그대로의 아름다움은 디지털 세계의 선택·통제·반복과
+            대비되며, 관객은 그 사이의 결핍과 충돌 속에서 자신만의 감각을
+            경험합니다.
+          </p>
+          <p>
+            <em>레이저 터널</em>은 일방향으로 흐르는 터널의 속성을 벗어나,
+            수평과 수직으로 확장되는 감각의 공간입니다. 관객은 빛과 공간의 교차
+            속에서 각자의 존재적 위치를 사유하며, 단일한 흐름이 아닌 다차원의
+            이동을 경험합니다.
+          </p>
+          <p class="muted">
+            《Tunnel of Light》는 단순한 통과의 길이 아니라, 잠시 머물며 사유할
+            수 있는 <strong>감각적 쉼터</strong>를 제안합니다. 관객은 각자의
+            속도와 리듬으로 이동하고 머무르며, 아날로그와 디지털 사이의 틈에서
+            자신을 발견하게 됩니다.
+          </p>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Flow (동선) -->
+        <section aria-labelledby="flow-ko">
+          <h2 id="flow-ko">동선</h2>
+          <!-- 동선 안내 영상 (자동 반복 재생) -->
+          <div class="flow-video">
+            <video autoplay loop muted playsinline>
+              <source src="video/flow.mp4" type="video/mp4" />
+              브라우저가 video 태그를 지원하지 않습니다.
+            </video>
+            <!-- <p class="muted">* 동선 진행을 보여주는 안내 영상</p> -->
+          </div>
+          <div class="flow">
+            <div class="flow-step">
+              <span class="label">01 입구 / Start · 1min</span>
+              <p>
+                열차가 <strong>자양→청담</strong>으로 움직이는 순간, 물리적
+                이동과 디지털 이동이 교차하는 장면 속으로 진입합니다.
+              </p>
+              <p class="flow-note">
+                이동과 진동이 데이터로 수집·처리되어 빛·음향의 흐름으로 공간을
+                채웁니다.
+              </p>
+            </div>
+            <div class="flow-step">
+              <span class="label"
+                >02 라이팅 터널 / Lighting Tunnel · 12min</span
+              >
+              <p>
+                <strong>아날로그와 디지털 사이, 빛의 공간이 펼쳐진다.</strong>
+              </p>
+              <p class="flow-note">
+                머무름/발견(아날로그)과 선택/반복(디지털)의 대비가 드러납니다.
+              </p>
+            </div>
+            <div class="flow-step">
+              <span class="label">03 레이저 터널 / Laser Tunnel · 3min</span>
+              <p>
+                일방향의 이동이 아니라 <strong>수평과 수직</strong>으로 확장되는
+                감각 속에서 관객이 자신만의 존재의 위치를 사유합니다.
+              </p>
+              <p class="flow-note">빛과 공간이 교차하는 새로운 이동의 경험.</p>
+            </div>
+          </div>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Why Tunnel -->
+        <section>
+          <h2>왜 터널의 형태인가?</h2>
+          <p>
+            우리는 끊임없이 물리적·비물질적으로 이동하는 시대에 살고 있습니다.
+            그 속에서 일정한 방향을 지닌 터널은 단순한 통로가 아니라
+            <strong>본질을 탐색할 수 있는 감각의 장</strong>이 됩니다.
+          </p>
+          <p>
+            터널 속 수많은 빛 중에서 멀리서 강렬하게 쏟아지는 한 점보다, 발걸음
+            곁을 은은히 밝혀주는 빛에서 더 깊은 울림을 느낍니다. 그 빛들은 내가
+            걷거나 멈추는 리듬에 따라 흔들리고 형태가 바뀌며,
+            <strong>주체적인 빛</strong>으로 다가옵니다.
+          </p>
+          <p>
+            우리는 맹목적으로 큰 빛만 좇기보다는, 과정 속에서 드러나는 작은
+            집중들을 다시 바라봐야 합니다. 터널은 그 시선을 회복하게 하는 감각의
+            공간입니다.
+          </p>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Schedule (KO) -->
+        <section>
+          <h2>상영 시간</h2>
+          <p class="muted" style="margin-top: -6px">
+            서울 라이트 한강 빛섬 축제 · 2025.10.03 – 2025.10.12
+          </p>
+          <p class="muted">※ 열차 운행/현장 상황에 따라 변동될 수 있습니다.</p>
+          <div class="sch-wrap">
+            <div class="sch" id="wk-ko">
+              <h3>주중 (Weekdays)</h3>
+              <div
+                class="chips"
+                data-times="18:31,18:50,19:10,19:30,19:50,20:12,20:30,20:48,21:07,21:28,21:49,22:14"
+              ></div>
+            </div>
+            <div class="sch" id="we-ko">
+              <h3>주말,공휴일 (Weekends, Public Holiday)</h3>
+              <div
+                class="chips"
+                data-times="18:35,18:54,19:14,19:33,19:53,20:13,20:32,20:52,21:11,21:31,21:52,22:12"
+              ></div>
+            </div>
+          </div>
+          <p class="muted" id="next-ko" style="margin-top: 10px"></p>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Artist (KO) -->
+        <section>
+          <h2>작가 소개</h2>
+          <p>
+            <strong>유 환 (YOUHWAN)</strong> — 빛과 공간을 매개로 ‘동심’의
+            시선을 재구성하는 미디어 아티스트.
+          </p>
+          <div class="btn-row">
+            <a href="about.html" class="btn" aria-label="About 페이지로 이동"
+              >About</a
+            >
+          </div>
+        </section>
+      </article>
+
+      <!-- ========== English ========== -->
+      <article class="lang-en" lang="en" aria-labelledby="tab-en">
+        <!-- Hero -->
+        <section class="hero" aria-label="intro">
+          <h2>Where does essence move?</h2>
+          <p class="hero-strap">
+            A site-specific installation beneath Jayang Overpass. With the
+            train’s departure, vibrations and sounds shift into light and data.
+            Through two tunnels, physical movement turns into a
+            <span class="muted">sensory flow</span>.
+          </p>
+          <div class="lines" aria-hidden="true">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Overview (EN) -->
+        <section aria-labelledby="about-en">
+          <h2 id="about-en">Overview</h2>
+          <p>
+            <em>Tunnel of Light</em> is a site-specific media installation
+            beneath Jayang Overpass, emerging from the question:
+            <strong
+              >“Where are we, and how should we exist within the layered flows
+              of physical and digital mobility?”</strong
+            >
+          </p>
+          <p>
+            The work begins at the moment a train departs Jayang Station toward
+            Cheongdam. The <strong>vibrations and sounds</strong> of the subway
+            are translated into <strong>light and data</strong>, opening a new
+            intersecting space where physical movement crosses with digital
+            rhythm. Visitors are invited to journey through two tunnels—the
+            <strong>Lighting Tunnel</strong> and the
+            <strong>Laser Tunnel</strong>.
+          </p>
+          <p>
+            The <em>Lighting Tunnel</em> unfolds between the analog and the
+            digital. It contrasts
+            <strong>dwelling and discovery</strong>—qualities of the analog
+            realm— with <strong>choice and repetition</strong>, inherent to the
+            digital. Within this intersection, visitors encounter both absence
+            and resonance, shaping their own sensory experience.
+          </p>
+          <p>
+            The <em>Laser Tunnel</em> breaks away from a single directional
+            flow. Here, perception expands
+            <strong>horizontally and vertically</strong>, as beams of light
+            reconfigure space and suggest new possibilities of movement. The
+            tunnel becomes a stage for multiplicity, not linear passage.
+          </p>
+          <p class="muted">
+            <em>Tunnel of Light</em> proposes more than a path to pass through.
+            It becomes a <strong>sensory refuge</strong>, where visitors may
+            pause, move, and reflect at their own pace—discovering themselves
+            within the interval between analog and digital worlds.
+          </p>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Flow (EN) -->
+        <section aria-labelledby="flow-en">
+      
+          <h2 id="flow-en">Flow</h2>
+                        <!-- 동선 안내 영상 (자동 반복 재생) -->
+                        <div class="flow-video">
+                          <video autoplay loop muted playsinline>
+                            <source src="video/flow.mp4" type="video/mp4" />
+                            브라우저가 video 태그를 지원하지 않습니다.
+                          </video>
+          <div class="flow">
+            <div class="flow-step">
+              <span class="label">01 Entrance / Start · 1 min</span>
+              <p>
+                At the moment the train departs
+                <strong>Jayang toward Cheongdam</strong>, visitors step into the
+                intersection of physical mobility (train) and digital mobility
+                (light).
+              </p>
+              <p class="flow-note">
+                Motion and vibration become data, blending into streams of light
+                and sound.
+              </p>
+            </div>
+            <div class="flow-step">
+              <span class="label">02 Lighting Tunnel · 12 min</span>
+              <p>
+                <strong
+                  >Between analog and digital, a space of light unfolds.</strong
+                >
+              </p>
+              <p class="flow-note">
+                A contrast between dwelling/discovery (analog) and
+                choice/repetition (digital).
+              </p>
+            </div>
+            <div class="flow-step">
+              <span class="label">03 Laser Tunnel · 3 min</span>
+              <p>
+                Perception breaks from a single line, expanding horizontally and
+                vertically.
+              </p>
+              <p class="flow-note">
+                A new sense of movement where light and space intersect.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Why Tunnel (EN) -->
+        <section>
+          <h2>Why the form of a tunnel?</h2>
+          <p>
+            In an age of constant physical and immaterial movement, the tunnel’s
+            fixed direction becomes more than a path—it offers a
+            <strong>sensory passage to explore essence</strong>.
+          </p>
+          <p>
+            Among the many lights inside, it is not the distant, blinding glow
+            that resonates most, but the subtle light that quietly illuminates
+            one’s steps. These lights shift and tremble with our pace, appearing
+            as <strong>subjective lights</strong>.
+          </p>
+          <p>
+            Rather than chasing only the overwhelming brightness at the end, the
+            tunnel invites us to notice the smaller foci along the way. It
+            becomes a space to regain attention to what is often overlooked.
+          </p>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Schedule (EN) -->
+        <section>
+          <h2>Screening Schedule</h2>
+          <p class="muted" style="margin-top: -6px">
+            Seoul Light Hangang Bitseom Festival · Oct 3 – Oct 12, 2025
+          </p>
+          <p class="muted">
+            * Subject to change based on train operations and site conditions.
+          </p>
+          <div class="sch-wrap">
+            <div class="sch" id="wk-en">
+              <h3>Weekdays</h3>
+              <div
+                class="chips"
+                data-times="18:31,18:50,19:10,19:30,19:50,20:12,20:30,20:48,21:07,21:28,21:49,22:14"
+              ></div>
+            </div>
+            <div class="sch" id="we-en">
+              <h3>Weekends, Public Holiday</h3>
+              <div
+                class="chips"
+                data-times="18:35,18:54,19:14,19:33,19:53,20:13,20:32,20:52,21:11,21:31,21:52,22:12"
+              ></div>
+            </div>
+          </div>
+          <p class="muted" id="next-en" style="margin-top: 10px"></p>
+        </section>
+
+        <div class="hr"></div>
+
+        <!-- Artist (EN) -->
+        <section>
+          <h2>Artist</h2>
+          <p>
+            <strong>YOUHWAN</strong> — A media artist reimagining a sense of
+            wonder through light and space.
+          </p>
+          <div class="btn-row">
+            <a href="about.html" class="btn" aria-label="Go to About">About</a>
+          </div>
+        </section>
+      </article>
+
+      <!-- 하단 공통 CTA -->
+      <div class="hr"></div>
+      <div class="btn-row" style="justify-content: center; margin-bottom: 48px">
+        <a
+          href="installation.html"
+          class="btn ghost"
+          aria-label="Installation 페이지로 이동"
+          >작품 더보기 · Installation</a
+        >
+      </div>
+
+      <!-- 후원/협력 -->
+      <footer class="credits">
+        <h3 class="lang-ko">후원 · 협력</h3>
+        <h3 class="lang-en">Support · Collaboration</h3>
+
+        <!-- KR -->
+        <div class="credits-grid lang-ko">
+          <div class="label">후원</div>
+          <div class="value">
+            café 섹션
+            <a
+              href="https://instagram.com/section_kr"
+              target="_blank"
+              rel="noopener"
+              >(@section_kr)</a
+            >
+          </div>
+
+          <div class="label">협력</div>
+          <div class="value">
+            Sound Designer : 이주엽
+            <a
+              href="https://instagram.com/Neo303__"
+              target="_blank"
+              rel="noopener"
+              >(@Neo303_)</a
+            >, 한재석
+            <a
+              href="https://instagram.com/livefdbck"
+              target="_blank"
+              rel="noopener"
+              >(@livefdbck)</a
+            ><br />
+            Designer : 청아치디자인
+            <a
+              href="https://instagram.com/cheongachi"
+              target="_blank"
+              rel="noopener"
+              >(@cheongachi)</a
+            ><br />
+            Sensing : 어나더선데이
+            <a
+              href="https://instagram.com/anothersun.day"
+              target="_blank"
+              rel="noopener"
+              >(@anothersun.day)</a
+            >
+          </div>
+        </div>
+
+        <!-- EN -->
+        <div class="credits-grid lang-en">
+          <div class="label">Support</div>
+          <div class="value">
+            Café Section
+            <a
+              href="https://instagram.com/section_kr"
+              target="_blank"
+              rel="noopener"
+              >(@section_kr)</a
+            >
+          </div>
+
+          <div class="label">Collaboration</div>
+          <div class="value">
+            Sound Designer: Lee Jooyeop
+            <a
+              href="https://www.instagram.com/neo303__/"
+              target="_blank"
+              rel="noopener"
+              >(@Neo303_)</a
+            >, Han Jaeseok
+            <a
+              href="https://instagram.com/livefdbck"
+              target="_blank"
+              rel="noopener"
+              >(@livefdbck)</a
+            ><br />
+            Designer: Cheongachi Design
+            <a
+              href="https://instagram.com/cheongachi"
+              target="_blank"
+              rel="noopener"
+              >(@cheongachi)</a
+            ><br />
+            Sensing: Another Sunday
+            <a
+              href="https://instagram.com/anothersun.day"
+              target="_blank"
+              rel="noopener"
+              >(@anothersun.day)</a
+            >
+          </div>
+        </div>
+      </footer>
+    </main>
+
+    <script>
+      // 언어 토글: 문서 내 모든 .lang-ko / .lang-en에 적용
+      function setLang(lang) {
+        const koEls = document.querySelectorAll(".lang-ko");
+        const enEls = document.querySelectorAll(".lang-en");
+        koEls.forEach((el) => el.classList.toggle("show", lang === "ko"));
+        enEls.forEach((el) => el.classList.toggle("show", lang === "en"));
+
+        const bKR = document.getElementById("tab-kr");
+        const bEN = document.getElementById("tab-en");
+        bKR.classList.toggle("active", lang === "ko");
+        bEN.classList.toggle("active", lang === "en");
+        bKR.setAttribute("aria-selected", String(lang === "ko"));
+        bEN.setAttribute("aria-selected", String(lang === "en"));
+      }
+
+      // 초기 언어: 한국어
+      document.addEventListener("DOMContentLoaded", () => setLang("ko"));
+
+      // 시간표 칩 렌더 + 다음 회차 하이라이트 (현지 시간 기준)
+      function renderTimes(root) {
+        const chips = root.querySelectorAll(".chips");
+        chips.forEach((box) => {
+          const times = (box.dataset.times || "")
+            .split(",")
+            .map((s) => s.trim());
+          const now = new Date();
+          let nextIdx = -1;
+          const frag = document.createDocumentFragment();
+          times.forEach((t, i) => {
+            const [hh, mm] = t.split(":").map(Number);
+            const d = new Date(
+              now.getFullYear(),
+              now.getMonth(),
+              now.getDate(),
+              hh,
+              mm,
+              0,
+              0
+            );
+            const span = document.createElement("span");
+            span.className = "t";
+            span.textContent = t;
+            if (nextIdx === -1 && d - now > 0) {
+              nextIdx = i;
+              span.classList.add("next");
+            }
+            frag.appendChild(span);
+          });
+          box.innerHTML = "";
+          box.appendChild(frag);
+        });
+      }
+      renderTimes(document);
+
+      // 다음 회차 안내 문구
+      function nextLabel(idPrefix, ko = true) {
+        const wrap = document.getElementById(idPrefix);
+        if (!wrap) return "";
+        const nextChip = wrap.querySelector(".t.next");
+        return nextChip
+          ? ko
+            ? `다음 시작은 ${nextChip.textContent} 전후입니다`
+            : `Next start around ${nextChip.textContent}`
+          : ko
+          ? "오늘 상영이 종료되었습니다"
+          : "No more screenings today";
+      }
+      document.getElementById("next-ko").textContent = nextLabel("wk-ko", true);
+      document.getElementById("next-en").textContent = nextLabel(
+        "wk-en",
+        false
+      );
+    </script>
+    <!-- 내부 링크에서 .html 확장자 제거 -->
+    <script src="js/fix-links.js"></script>
+  </body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Growing seeds — HWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager-perform.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <div class="spacer" aria-hidden="true"></div>
+
+      <header class="work-head">
+        <nav class="crumb">
+          <a href="/performance.html">PERFORMANCE</a> / Growing seeds
+        </nav>
+        <h1>Growing seeds</h1>
+        <div class="meta">Performance · 2024 · Seoul, KR</div>
+      </header>
+      <ul class="credits">
+        <li>Media art : 유환 (YOUHWAN)</li>
+        <li>Art Director & Sound : 강효지</li>
+        <li>Saxophonist: 강태환</li>
+        <li>Venue: Sejong Center for the Performing Arts</li>
+      </ul>
+      <!-- ...비디오/설명/스틸컷... -->
+      <!-- 비디오1 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="uj1sh30OvLY"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/uj1sh30OvLY/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 설명 -->
+      <section class="desc">
+        <h5>Remnants in Confusion</h5>
+        <p>Hologram</p>
+      </section>
+      <!-- 비디오2 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="0beXfQxR_M4"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/0beXfQxR_M4/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 설명 -->
+      <section class="desc">
+        <h5>Birth</h5>
+        <p>Hologram</p>
+      </section>
+      <!-- 비디오3 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="6Kbv_VWEPwQ"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/6Kbv_VWEPwQ/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 비디오4 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="pjy9wdsU1wg"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/pjy9wdsU1wg/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 비디오5 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="i4QYQN-bIKc"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/i4QYQN-bIKc/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 스틸컷 -->
+      <section class="stills">
+        <img
+          src="../img/work-perform/growing/growing seeds cut1_00354.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/growing/홀로그램1_1400879.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/growing/홀로그램2_1394433.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/growing/홀로그램3_1387320.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-perform/growing/홀로그램4_1528321.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="/performance.html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+    </main>
+    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+        const id = btn.dataset.yt;
+        const wrapper = btn.parentElement; // .ratio
+        wrapper.innerHTML = `
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+                  title="${btn.dataset.title || "Video"}"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>`;
+      });
+    </script>
+  </body>
+</html>

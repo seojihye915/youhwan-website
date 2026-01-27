@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>점선면선점 (Dot, Line, Plane, Line, Point) — HWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager-media.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <div class="spacer" aria-hidden="true"></div>
+
+      <header class="work-head">
+        <nav class="crumb">
+          <a href="/media-facade.html">MEDIA FACADE</a> / 점선면선점 (Dot, Line,
+          Plane, Line, Point)
+        </nav>
+        <h1>점선면선점 (Dot, Line, Plane, Line, Point)</h1>
+        <div class="meta">Media Facade · 2024 · Seoul, KR</div>
+      </header>
+      <ul class="credits">
+        <li>Art Director: 유환 (YOUHWAN)</li>
+        <li>Media artist : 유환 (YOUHWAN) & 김동한</li>
+        <!-- <li>Sound: Neo303</li> -->
+        <li>Art production company: Aplan company</li>
+        <li>Venue: Jeonju Jeondong Catholic Cathedral</li>
+      </ul>
+      <!-- ...비디오/설명/스틸컷... -->
+      <!-- 비디오1 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="WT9XYrdJ0CQ"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/WT9XYrdJ0CQ/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 비디오2 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="kU1fJCGTXe0"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/kU1fJCGTXe0/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <!-- 설명 -->
+      <section class="desc">
+        <h5>점선면선점 (Dot, Line, Plane, Line, Point)</h5>
+        <p>
+          빛, 소리, 색, 형태의 시작은 어디이고 끝은 어디인가? 점,선,면의
+          불완전은 무엇이고 완전은 무엇인가? 우리는 종착지를 향함과 동시에
+          새로운 시작점을 항상 넘어가며 살고있다. 시작으로 보이는 곳 조차 과정이
+          존재하며, 과정 또한 시작이다.
+          <br />점선면선점은 시작과 과정, 그리고 그 끝에서 다시 시작되는 순환의
+          이야기를 탐구하는 오디오 비주얼 작품입니다. 이 작품은 '점, 선,
+          면'이라는 기본적인 형태를 통해, 우리가 끊임없이 새로운 출발점에 서고
+          다시 그 끝에 도달하는 과정을 시각적으로 표현합니다. 빛과 소리, 색과
+          형태는 그 자체로 시작과 끝을 지니고 있으며, 이들은 공간 안에서 선과
+          면으로 변형되며 우리에게 다양한 이야기를 전합니다. 시작점이 끝점에
+          닿아 선을 이루고, 출발선이 결승선에 닿아 면을 만들어내는 순환의 과정
+          속에서 우리는 끊임없이 앞으로 나아갑니다.
+        </p>
+        <br />
+        <p>
+          Where do light, sound, color, and form begin, and where do they end?
+          What is the imperfection of points, lines, and surfaces, and what is
+          perfection? We live by always surpassing new starting points while
+          heading toward our destination. Even what appears to be a beginning
+          holds a process, and that process itself is a new beginning.
+          <br />
+          "Point Line Surface, Line Point" is an audio-visual work that explores
+          the cyclical narrative of beginnings, processes, and ends that lead to
+          new beginnings. Through the basic forms of "point, line, and surface,"
+          this piece visually represents the continuous process of standing at a
+          new starting point and reaching the end, only to start again. Light,
+          sound, color, and form inherently carry both beginnings and ends. They
+          transform into lines and surfaces within space, conveying various
+          stories to us. The starting point touches the end point to form a
+          line, and the starting line touches the finish line to create a
+          surface. In this cyclical process, we are constantly moving forward.
+        </p>
+      </section>
+      <!-- 스틸컷 -->
+      <section class="stills">
+        <img
+          src="../img/work-facade/dot/전동성당.jpg"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="../img/work-facade/dot/전동성당1.jpg"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="/media-facade/html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+    </main>
+    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+        const id = btn.dataset.yt;
+        const wrapper = btn.parentElement; // .ratio
+        wrapper.innerHTML = `
+              <div class="ratio">
+                <iframe
+                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+                  title="${btn.dataset.title || "Video"}"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
+              </div>`;
+      });
+    </script>
+  </body>
+</html>

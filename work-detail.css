@@ -1,0 +1,467 @@
+/* ===== Work Detail base ===== */
+:root {
+  --header-h: 72px; /* 고정 헤더 높이(필요시 조정) */
+  --max-w-wide: 1400px;
+  --max-w-body: 1000px;
+  --pad-x: 4px;
+}
+
+.work {
+  background: #000;
+  color: #fff;
+}
+.spacer {
+  height: var(--header-h);
+}
+.credits {
+  max-width: min(var(--max-w-body), 92vw);
+  margin: 0 auto 36px;
+  line-height: 1.8;
+  margin-top: 16px;
+  color: #bfbfbf;
+  font-family: "Space Mono", monospace;
+  /* font-family: "Barlow Condensed", sans-serif; */
+  font-size: clamp(10px, 1.3vw, 12px);
+}
+/* 헤드 */
+/* crumb 링크가 보라색(visited)으로 안 변하게 */
+.hero-ui .crumb a,
+.hero-ui .crumb a:visited {
+  color: #cfcfcf; /* 원하는 색으로 */
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.hero-ui .crumb a:hover {
+  opacity: 0.85;
+}
+
+.work-head {
+  max-width: min(var(--max-w-body), 92vw);
+  margin: 32px auto 20px;
+  padding: 0 var(--pad-x);
+}
+.work-head .crumb {
+  color: #cfcfcf;
+  font-family: "Space Mono", monospace;
+  font-size: clamp(11px, 1.2vw, 13px);
+  margin-bottom: 6px;
+  opacity: 0.85;
+}
+.work-head .crumb a {
+  color: #cfcfcf;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+.work-head h1 {
+  font-family: "Barlow Condensed", sans-serif;
+  /* font-family: "Archivo", system-ui, -apple-system, sans-serif; */
+  font-weight: 500;
+  font-size: clamp(20px, 5vw, 30px);
+  letter-spacing: 0.02em;
+}
+.work-head .meta {
+  margin-top: 6px;
+  color: #cfcfcf;
+  font-family: "Space Mono", monospace;
+  font-size: clamp(12px, 1.4vw, 15px);
+}
+
+/* 비디오 — 두 가지 모드 지원 */
+/* 1) 클릭-to-Play 썸네일 버튼 */
+.video {
+  max-width: 950px;
+  margin: 16px auto 28px;
+}
+.video .video-lazy {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: inline-block;
+  border: 0;
+  padding: 0;
+  background: #0a0a0a;
+  cursor: pointer;
+}
+.video .video-lazy img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  opacity: 0.9;
+}
+.video .video-lazy .play {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px; /* 아이콘 크기 */
+  color: white; /* 색상 */
+  text-shadow: 0 0 15px rgba(0, 0, 0, 0.8); /* 배경 대비 */
+  pointer-events: none; /* 클릭 방해 안 함 */
+}
+
+/* 2) 즉시 iframe 모드 (ratio 래퍼) */
+.video .ratio {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: #0a0a0a;
+  overflow: hidden;
+  border-radius: 4px;
+}
+.video iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  display: block;
+}
+
+/* 설명 */
+.desc {
+  max-width: min(var(--max-w-body), 92vw);
+  margin: 0 auto 36px;
+  line-height: 1.8;
+  color: #ddd;
+  font-size: clamp(12px, 1.5vw, 14px);
+}
+.desc .credits {
+  margin-top: 16px;
+  color: #bfbfbf;
+  font-family: "Space Mono", monospace;
+  /* font-family: "Barlow Condensed", sans-serif; */
+  font-size: clamp(10px, 1.3vw, 12px);
+}
+.desc .credits li + li {
+  margin-top: 6px;
+}
+
+/* ===== Stills: column switcher ===== */
+
+.stills {
+  max-width: min(1200px, 92vw);
+  margin: 0 auto 56px;
+  gap: 12px;
+  --cols: 2;
+  --gap: clamp(14px, 1.6vw, 24px);
+  display: grid;
+  grid-template-columns: repeat(var(--cols), minmax(0, 1fr));
+  gap: var(--gap);
+}
+
+/* 열 수 토글 */
+.stills--1 {
+  --cols: 1;
+  max-width: min(900px, 92vw);
+}
+.stills--2 {
+  --cols: 2;
+  max-width: min(1200px, 92vw);
+}
+.stills--3 {
+  --cols: 3;
+  max-width: min(1400px, 92vw);
+}
+
+/* 이미지 */
+.stills img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain; /* 크롭 없음 */
+  border-radius: 6px;
+}
+@media (max-width: 980px) {
+  .stills {
+    --cols: 2;
+    max-width: min(900px, 94vw);
+  }
+}
+@media (max-width: 640px) {
+  .stills {
+    --cols: 1;
+    max-width: min(520px, 94vw);
+  }
+}
+.stills--3 {
+  --cols: 3;
+  --gap: clamp(18px, 2vw, 30px);
+}
+
+/* 유니폼 모드: 모든 썸네일 칸을 같은 높이(=같은 비율)로 통일 */
+.stills.is-uniform img {
+  width: 100%;
+  aspect-ratio: 16 / 9; /* 여기 숫자만 바꾸면 통일 높이/비율 변경 */
+  height: auto; /* 안전용 */
+  object-fit: contain; /* 크롭 없음, 비율 유지 */
+  background: rgba(255, 255, 255, 0.04); /* 빈 공간(레터박스) 자연스럽게 */
+  border-radius: 10px;
+  display: block;
+}
+
+/* 페이지 네비 */
+.pager {
+  max-width: min(1200px, 92vw);
+  margin: 10px auto 0;
+  padding: 18px var(--pad-x) 40px;
+  display: flex;
+  justify-content: space-between;
+  /* font-family: "Space Mono", monospace; */
+  font-family: "Barlow Condensed", sans-serif;
+}
+.pager a {
+  color: #fff;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+}
+.pager a:hover {
+  opacity: 0.75;
+}
+
+.bottom-space {
+  height: 10vh;
+}
+
+/* ===== HERO Video (Local <video>) ===== */
+.hero-video {
+  position: relative;
+  height: calc(100vh - var(--header-h));
+  min-height: 560px;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 0;
+  background: #000;
+}
+
+/* 하단 그라데이션(원하면 유지) */
+.hero-video::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 140px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.85));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.hero-video .hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+.hero-video .hero-ui {
+  position: relative;
+  top: 28px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(var(--max-w-body), 92vw);
+  z-index: 2;
+  pointer-events: none; /* 텍스트 영역 클릭 방지 */
+}
+
+.hero-video .hero-ui .crumb,
+.hero-video .hero-ui h1,
+.hero-video .hero-ui .meta {
+  text-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* 스크롤 힌트 */
+.hero-scroll {
+  width: 44px;
+  height: 2px;
+  background: rgba(255, 255, 255, 0.18);
+  position: absolute;
+  left: 50%;
+  bottom: 22px;
+  transform: translateX(-50%);
+  border-radius: 99px;
+  font-size: 0; /* 텍스트 숨김 */
+}
+
+/* ===== Video progress (below videos) ===== */
+.video-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  padding: 14px 0; /* 터치 영역 */
+}
+
+.video-progress__bar {
+  height: 2px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.18);
+  position: relative;
+  cursor: pointer;
+}
+
+.video-progress__fill {
+  height: 100%;
+  width: 0%;
+  background: rgba(255, 255, 255, 0.85);
+}
+.hero-video {
+  position: relative;
+  height: calc(100vh - var(--header-h));
+  background: #000;
+  overflow: hidden;
+}
+
+.hero-media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero-video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  background: #000;
+}
+
+/* crumb 링크 방문색 방지 */
+.hero-ui .crumb a,
+.hero-ui .crumb a:visited {
+  color: #cfcfcf;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.hero-ui .crumb a:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 900px) {
+  .hero-video {
+    min-height: 480px;
+  }
+}
+/* 레이어 고정: 비디오(0) / 텍스트(2) / 버튼(5) */
+.hero-video {
+  position: relative;
+}
+.hero-video .hero-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-video .hero-ui {
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* 타이틀 + 사운드 버튼 묶음 */
+.hero-title-row {
+  display: flex; /* inline-flex보다 안정적 */
+  align-items: baseline; /* 타이틀 글줄 기준으로 맞춤 */
+  gap: 12px;
+  width: fit-content;
+}
+.hero-title-row h1 {
+  margin: 0;
+  line-height: 1;
+  padding-bottom: 1%;
+}
+/* 사운드 버튼 */
+.hero-mute {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  pointer-events: auto; /* hero-ui가 none이면 필수 */
+}
+
+/* hover 시만 살짝 강조 */
+.hero-mute:hover {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* 모바일 대응 */
+@media (max-width: 900px) {
+  .hero-mute {
+    font-size: 13px;
+    transform: translateY(1px);
+  }
+}
+
+.hero-ui {
+  font-family: "Space Mono", monospace;
+}
+.hero-ui .crumb {
+  font-size: small;
+  padding-bottom: 0.4%;
+}
+/* 링크와 버튼만 클릭 가능하게 예외 처리 */
+.hero-video .hero-ui a,
+.hero-video .hero-ui button {
+  pointer-events: auto;
+}
+/* Program Detail 클릭 카드 */
+.update-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+
+  padding: 16px 18px;
+  border-radius: 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.04);
+
+  cursor: pointer;
+  text-decoration: none;
+
+  transition: transform 0.15s ease, background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.update-link:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.28);
+}
+
+.update-link:active {
+  transform: translateY(0);
+}
+
+.update-link:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.65);
+  outline-offset: 3px;
+}
+
+.update-date {
+  min-width: 80px;
+  opacity: 0.9;
+}
+
+.update-cta {
+  margin-left: auto;
+  white-space: nowrap;
+  font-weight: 700;
+  opacity: 0.9;
+}
+.hero-media {
+  pointer-events: none;
+}
+.hero-ui,
+.crumb a {
+  pointer-events: auto;
+}
