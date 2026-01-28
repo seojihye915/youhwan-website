@@ -15,19 +15,45 @@
   <body class="work">
     <main>
       <div class="spacer" aria-hidden="true"></div>
+      <section class="hero-video" aria-label="Project hero video">
+        <div class="hero-media">
+          <video
+            class="hero-video-el"
+            src="/video/highlight/mediafacade/sanctuary.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/img/thumbnail/mapping/sanctuary.jpg"
+          ></video>
+        </div>
 
-      <header class="work-head">
-        <nav class="crumb">
-          <a href="/media-facade.html">MEDIA FACADE</a> / Sanctuary
-        </nav>
-        <h1>Sanctuary #1</h1>
-        <div class="meta">Media Facade · 2024 · Busan, KR</div>
-      </header>
+        <div class="hero-ui">
+          <nav class="crumb">
+            <a href="/media-facade.html">MEDIA FACADE</a> /
+          </nav>
+
+          <div class="hero-title-row">
+            <h1>Sanctuary #1</h1>
+            <button
+              class="hero-mute"
+              type="button"
+              aria-pressed="true"
+              aria-label="Sound off"
+            >
+              🔇
+            </button>
+          </div>
+          <div class="meta">Media facade · 2024 · Busan, KR</div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      </section>
+
       <ul class="credits">
         <li>Media artist : 유환 (YOUHWAN)</li>
-        <!-- <li>Sound: Neo303</li> -->
-        <!-- <li>Art production company: Aplan company</li> -->
-        <li>Venue: BUSAN CINEMA CENTER</li>
+        <li>Place: BUSAN CINEMA CENTER</li>
+        <li>Organizer: 컬리넌 아트 컴퍼니</li>
       </ul>
       <!-- ...비디오/설명/스틸컷... -->
       <!-- 비디오2 -->
@@ -67,19 +93,24 @@
         </p>
       </section>
       <!-- 스틸컷 -->
-      <section class="stills">
+      <section class="stills stills--2">
         <img
-          src="../img/work-facade/sanctuary/sanctuary1.jpg"
+          src="/img/work-facade/sanctuary/sanctuary1.jpg"
           alt="ENCAGED.2 still 1"
           loading="lazy"
         />
         <img
-          src="../img/work-facade/sanctuary/sanctuary2.jpg"
+          src="/img/work-facade/sanctuary/sanctuary2.jpg"
           alt="ENCAGED.2 still 2"
           loading="lazy"
         />
         <img
-          src="../img/work-facade/sanctuary/sanctuary3.jpg"
+          src="/img/work-facade/sanctuary/sanctuary3.jpg"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/sanctuary/s.png"
           alt="ENCAGED.2 still 2"
           loading="lazy"
         />
@@ -97,18 +128,41 @@
       document.addEventListener("click", (e) => {
         const btn = e.target.closest(".video-lazy");
         if (!btn) return;
+
         const id = btn.dataset.yt;
-        const wrapper = btn.parentElement; // .ratio
-        wrapper.innerHTML = `
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-                  title="${btn.dataset.title || "Video"}"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>`;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
       });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
     </script>
   </body>
 </html>
