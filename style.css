@@ -272,6 +272,7 @@ body.no-scroll {
   min-height: 200vh;
   overflow: hidden;
   display: grid;
+  /* margin-bottom: clamp(6vh, 8vw, 120px); */
 }
 .background-video {
   position: fixed;
@@ -448,6 +449,7 @@ body.no-scroll {
 .home-categories {
   background: #000;
   color: #fff;
+  padding-top: clamp(6vh, 8vw, 120px);
 }
 .cat-grid {
   max-width: min(1400px, 94vw);
