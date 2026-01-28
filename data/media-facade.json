@@ -52,5 +52,11 @@
     "title": "Switch Project",
     "year": 2021,
     "thumb": "/img/thumbnail/mapping/switch.png"
+  },
+  {
+    "file": "what-for.html",
+    "title": "What for?",
+    "year": 2021,
+    "thumb": "/img/thumbnail/mapping/whatfor.png"
   }
 ]
