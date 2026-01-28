@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>점선면선점 (Dot, Line, Plane, Line, Point) — HWAN</title>
+    <title>점선면선점 (Dot, Line, Plane, Line, Point) — YOUHWAN</title>
 
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/work-detail.css" />
@@ -20,23 +20,23 @@
         <div class="hero-media">
           <video
             class="hero-video-el"
-            src="/video/highlight/mediafacade/cycle.mp4"
+            src="/video/highlight/mediafacade/dot.mp4"
             autoplay
             muted
             loop
             playsinline
             preload="metadata"
-            poster="/img/thumbnail/installation/tunnel.png"
+            poster="/img/thumbnail/mapping/dot.jpg"
           ></video>
         </div>
 
         <div class="hero-ui">
           <nav class="crumb">
-            <a href="/media-facade.html">MEDIA FACADE</a> / Cycle
+            <a href="/media-facade.html">MEDIA FACADE</a> /
           </nav>
 
           <div class="hero-title-row">
-            <h1>Cycle</h1>
+            <h1>점선면선점 (Dot, Line, Plane, Line, Point)</h1>
             <button
               class="hero-mute"
               type="button"
@@ -46,24 +46,16 @@
               🔇
             </button>
           </div>
-          <div class="meta">Media facade, Laser · 2023 · Suwon, KR</div>
+          <div class="meta">Media Facade · 2024 · Jeonju , KR</div>
         </div>
         <div class="hero-scroll" aria-hidden="true">Scroll</div>
       </section>
-      <header class="work-head">
-        <nav class="crumb">
-          <a href="/media-facade.html">MEDIA FACADE</a> / 점선면선점 (Dot, Line,
-          Plane, Line, Point)
-        </nav>
-        <h1>점선면선점 (Dot, Line, Plane, Line, Point)</h1>
-        <div class="meta">Media Facade · 2024 · Seoul, KR</div>
-      </header>
+
       <ul class="credits">
-        <li>Art Director: 유환 (YOUHWAN)</li>
+        <li>Artist: 유환 (YOUHWAN) & 김동한</li>
         <li>Media artist : 유환 (YOUHWAN) & 김동한</li>
-        <!-- <li>Sound: Neo303</li> -->
-        <li>Art production company: Aplan company</li>
-        <li>Venue: Jeonju Jeondong Catholic Cathedral</li>
+        <li>Place: 전주 전동성당</li>
+        <li>rt production company, Organizer : Aplan company</li>
       </ul>
       <!-- ...비디오/설명/스틸컷... -->
       <!-- 비디오1 -->
@@ -134,14 +126,44 @@
         </p>
       </section>
       <!-- 스틸컷 -->
-      <section class="stills">
+      <section class="stills is-uniform">
         <img
-          src="../img/work-facade/dot/전동성당.jpg"
-          alt="ENCAGED.2 still 1"
+          src="/img/work-facade/dot/dot.jpg"
+          alt="ENCAGED.2 still 2"
           loading="lazy"
         />
         <img
-          src="../img/work-facade/dot/전동성당1.jpg"
+          src="/img/work-facade/dot/dot1.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/dot/dot2.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/dot/dot3.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/dot/dot4.png"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/dot/dot5.jpg"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/dot/set1.jpg"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/dot/set2.jpg"
           alt="ENCAGED.2 still 2"
           loading="lazy"
         />
@@ -154,23 +176,45 @@
         <a class="next" href="#" style="visibility: hidden">Next →</a>
       </nav>
     </main>
-    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
     <script>
       document.addEventListener("click", (e) => {
         const btn = e.target.closest(".video-lazy");
         if (!btn) return;
+
         const id = btn.dataset.yt;
-        const wrapper = btn.parentElement; // .ratio
-        wrapper.innerHTML = `
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-                  title="${btn.dataset.title || "Video"}"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>`;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
       });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
     </script>
   </body>
 </html>
