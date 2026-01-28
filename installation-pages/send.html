@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Send and Receive — HWAN</title>
+    <title>Send and Receive — YOUHWAN</title>
 
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/work-detail.css" />
@@ -16,22 +16,67 @@
     <main>
       <!-- 고정 헤더 높이만큼 여백 -->
       <div class="spacer" aria-hidden="true"></div>
+      <section class="hero-video" aria-label="Project hero video">
+        <div class="hero-media">
+          <video
+            class="hero-video-el"
+            src="/video/highlight/installation/send.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/img/thumbnail/installation/tunnel.png"
+          ></video>
+        </div>
 
-      <!-- 빵크럼/타이틀 -->
-      <header class="work-head">
-        <nav class="crumb">
-          <a href="../installation.html">LIGHTING ART</a> / Send and Receive
-        </nav>
-        <h1>Send and Receive</h1>
-        <div class="meta">Installation · 2024 · Seoul, KR</div>
-      </header>
+        <div class="hero-ui">
+          <nav class="crumb">
+            <a href="/installation.html">LIGHTING ART</a> / Send and Receive
+          </nav>
+
+          <div class="hero-title-row">
+            <h1>Send and Receive</h1>
+            <button
+              class="hero-mute"
+              type="button"
+              aria-pressed="true"
+              aria-label="Sound off"
+            >
+              🔇
+            </button>
+          </div>
+          <div class="meta">
+            Multi display Installation · 2022 · Seongsu, Seoul, KR
+          </div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      </section>
+
       <ul class="credits">
-        <li>Art Director : 유환 (HWAN)</li>
-        <li>Media artist : 유환 (HWAN)</li>
-        <li>Sound : Neo303</li>
-        <li>exhibition : 김호중 별의노래 전</li>
-        <li>Venue: 성수 갤러리아 포레</li>
+        <li>Artist: 유환 (YOUHWAN)</li>
+        <li>Place: 성수 갤러리아 포레</li>
+        <li>Cooperation: Sound/Neo303, Artist/장영석, 소은명</li>
       </ul>
+
+      <section class="desc">
+        <h5>Send and Receive</h5>
+        <p>
+          《Send and Receive》는 보이지 않지만 끊임없이 오가는 ‘연결의 상태’를
+          오디오비주얼로 가시화한 작업이다. 이 연결은 타인과의 소통일 수도
+          있지만, 작업에서 더 중요하게 작동하는 것은 작가 내부에서 발생하는
+          감각과 인식의 교환이다. 과거의 경험과 현재의 위치, 그리고 앞으로
+          나아가야 할 방향 사이에서 발생하는 미세한 감정과 반응들은 송신과
+          수신을 반복하며 작업의 리듬을 형성한다. 이 작업은 특정한 메시지나
+          결과를 전달하기보다, 감각이 오가고 정리되는 과정을 드러내는 데 초점을
+          둔다. 소리와 이미지의 흐름은 의도적으로 완결된 서사를 갖기보다, 생성과
+          변형의 상태로 유지되며 내면의 움직임을 기록한다. 이는 감정을
+          설명하거나 재현하기보다는, 감정이 발생하고 조율되는 순간 자체를
+          드러내기 위한 선택이다.
+          <br />
+        </p>
+      </section>
+
       <!-- 비디오1 -->
       <section class="video">
         <div class="ratio">
@@ -48,28 +93,8 @@
         </div>
       </section>
 
-      <!-- 설명 -->
-      <!-- <section class="desc">
-        <h5>Cycle</h5>
-        <p>
-          "궤도"는 분열의 속도와 함께 탄생하는 것, 그리고 부조화의 향연 속에서
-          어우러지는 조화의 존재의미를 담아낸다. 우리가 경험하는 삶의 운동과
-          우주의 운동 사이의 유사성과 연결을 통해 우리의 존재와 의미에 대한
-          질문을 제기한다. 감성과 사유, 그리고 아름다움과 모순 사이에서의 궤도를
-          탐색하여 우리 내면의 더 깊은 심층속을 바라보도록 이끈다. <br />
-          <br />
-          "Cycle"encapsulates the essence of emergence alongside the velocity of
-          divergence, as well as the significance of harmony merging within the
-          spectacle of discord. It prompts questions about our existence and
-          meaning by exploring the similarity and connection between the
-          movements of life we experience and those of the universe. By delving
-          into the orbit between emotion and reason, beauty and contradiction,
-          it guides us to gaze into the deeper depths of our inner selves./p>
-        </p>
-      </section> -->
-
       <!-- 스틸컷 -->
-      <section class="stills">
+      <section class="stills is-uniform">
         <img
           src="../img/work/send/send and receive 1.jpg"
           alt="ENCAGED.2 still 1"
@@ -81,7 +106,12 @@
           loading="lazy"
         />
         <img
-          src="../img/work/send/send and receive 3.jpg"
+          src="/img/work/send/set3.jpg"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
+        <img
+          src="/img/work/send/set1.jpg"
           alt="ENCAGED.2 still 2"
           loading="lazy"
         />
@@ -96,23 +126,45 @@
       <div class="bottom-space" aria-hidden="true"></div>
     </main>
 
-    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
     <script>
       document.addEventListener("click", (e) => {
         const btn = e.target.closest(".video-lazy");
         if (!btn) return;
+
         const id = btn.dataset.yt;
-        const wrapper = btn.parentElement; // .ratio
-        wrapper.innerHTML = `
-          <div class="ratio">
-            <iframe
-              src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-              title="${btn.dataset.title || "Video"}"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowfullscreen></iframe>
-          </div>`;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
       });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
     </script>
   </body>
 </html>

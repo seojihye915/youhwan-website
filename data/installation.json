@@ -27,18 +27,18 @@
     "file": "section.html",
     "title": "Lines of Tangible Extension, section",
     "year": 2024,
-    "thumb": "/img/thumbnail/installation/section.jpg"
-  },
-  {
-    "file": "cycle.html",
-    "title": "Cycle, section",
-    "year": 2024,
-    "thumb": "/img/thumbnail/installation/cycle.jpg"
+    "thumb": "/img/thumbnail/installation/section.png"
   },
   {
     "file": "send.html",
     "title": "Send and Receive, VJING Audio visual Media art",
     "year": 2022,
     "thumb": "/img/thumbnail/installation/send.jpg"
+  },
+  {
+    "file": "kb.html",
+    "title": "Breath, KB Bank",
+    "year": 2022,
+    "thumb": "/img/thumbnail/installation/breath.jpg"
   }
 ]

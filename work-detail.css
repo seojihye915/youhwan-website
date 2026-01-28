@@ -171,23 +171,17 @@
   object-fit: contain; /* 크롭 없음 */
   border-radius: 6px;
 }
+
 @media (max-width: 980px) {
   .stills {
     --cols: 2;
-    max-width: min(900px, 94vw);
   }
 }
 @media (max-width: 640px) {
   .stills {
     --cols: 1;
-    max-width: min(520px, 94vw);
   }
 }
-.stills--3 {
-  --cols: 3;
-  --gap: clamp(18px, 2vw, 30px);
-}
-
 /* 유니폼 모드: 모든 썸네일 칸을 같은 높이(=같은 비율)로 통일 */
 .stills.is-uniform img {
   width: 100%;

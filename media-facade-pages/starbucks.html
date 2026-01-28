@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Altitude, Microclimate, Soil / starbucks — HWAN</title>
+    <title>JOURNEY 展 — YOUHWAN</title>
 
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/work-detail.css" />
@@ -16,23 +16,61 @@
     <main>
       <div class="spacer" aria-hidden="true"></div>
 
-      <header class="work-head">
-        <nav class="crumb">
-          <a href="/media-facade.html">MEDIA FACADE</a> / Altitude,
-          Microclimate, Soil
-        </nav>
-        <h1>Altitude, Microclimate, Soil with starbucks</h1>
-        <div class="meta">Media Facade · 2024 · Chuncheon, KR</div>
-      </header>
+      <section class="hero-video" aria-label="Project hero video">
+        <div class="hero-media">
+          <video
+            class="hero-video-el"
+            src="/video/highlight/mediafacade/starbucks.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/img/thumbnail/installation/tunnel.png"
+          ></video>
+        </div>
+
+        <div class="hero-ui">
+          <nav class="crumb">
+            <a href="/media-facade.html">MEDIA FACADE</a> / JOURNEY 展
+          </nav>
+
+          <div class="hero-title-row">
+            <h1>JOURNEY 展</h1>
+            <button
+              class="hero-mute"
+              type="button"
+              aria-pressed="true"
+              aria-label="Sound off"
+            >
+              🔇
+            </button>
+          </div>
+          <div class="meta">Media facade · 2024 · Chuncheon, KR</div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      </section>
 
       <!-- ...비디오/설명/스틸컷... -->
       <ul class="credits">
         <li>Art Director: 유환 (YOUHWAN)</li>
-        <li>Media artist : 유환 (YOUHWAN)</li>
-        <!-- <li>Sound: Neo303</li> -->
-        <li>Art production company: Aplan company</li>
-        <li>Venue: 스타벅스 더춘천의암호R점</li>
+        <li>Artist: 유환 (YOUHWAN)</li>
+        <li>Place: 스타벅스 더춘천의암호R점</li>
+        <li>Art production company, Organizer: Aplan company</li>
+        <li>Cooperation: 김문정, 나리, 서지혜</li>
       </ul>
+
+      <section class="desc">
+        <h5>JOURNEY 展</h5>
+        <p>
+          ‘JOURNEY’전시는 커피 한 잔이 우리에게 선사하는 다양한 감각적, 정신적
+          여정을 탐구합니다. 커피의 품질을 결정짓는 Soil, Microclimate, Altitude
+          는 독특한 풍미와 색깔을 만들어내며, 이러한 감각적 요소들을 서정적인
+          방식으로 풀어냅니다. 이는 우리에게 다채로운 색에서 오는 영감과 현재의
+          삶, 내면의 사유를 제공합니다. 이머시브 커피의 여정 속에서, 우리는
+          내면의 깊이와 삶의 아름다움을 새롭게 발견하게 됩니다.
+        </p>
+      </section>
       <!-- 비디오1 -->
       <section class="video">
         <div class="ratio">
@@ -117,7 +155,7 @@
         </p>
       </section>
       <!-- 스틸컷 -->
-      <section class="stills">
+      <section class="stills is-uniform">
         <img
           src="../img/work-facade/starbucks/insta altitude 표지이미지_00846.png"
           alt="ENCAGED.2 still 1"
@@ -143,6 +181,11 @@
           alt="ENCAGED.2 still 2"
           loading="lazy"
         />
+        <img
+          src="/img/work-facade/starbucks/set.jpg"
+          alt="ENCAGED.2 still 2"
+          loading="lazy"
+        />
       </section>
 
       <!-- 이전 / 목록 / 다음 -->
@@ -152,23 +195,45 @@
         <a class="next" href="#" style="visibility: hidden">Next →</a>
       </nav>
     </main>
-    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
     <script>
       document.addEventListener("click", (e) => {
         const btn = e.target.closest(".video-lazy");
         if (!btn) return;
+
         const id = btn.dataset.yt;
-        const wrapper = btn.parentElement; // .ratio
-        wrapper.innerHTML = `
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-                  title="${btn.dataset.title || "Video"}"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>`;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
       });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
     </script>
   </body>
 </html>
