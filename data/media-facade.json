@@ -46,5 +46,11 @@
     "title": "vestiges",
     "year": 2022,
     "thumb": "/img/thumbnail/mapping/ulsan50.jpg"
+  },
+  {
+    "file": "switch.html",
+    "title": "Switch Project",
+    "year": 2021,
+    "thumb": "/img/thumbnail/mapping/switch.png"
   }
 ]
