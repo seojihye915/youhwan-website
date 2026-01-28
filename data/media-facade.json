@@ -43,7 +43,7 @@
   },
   {
     "file": "ulsan50.html",
-    "title": "vestiges",
+    "title": "Vestiges",
     "year": 2022,
     "thumb": "/img/thumbnail/mapping/ulsan50.jpg"
   },
@@ -58,5 +58,11 @@
     "title": "What for?",
     "year": 2021,
     "thumb": "/img/thumbnail/mapping/whatfor.png"
+  },
+  {
+    "file": "seoul-botanic.html",
+    "title": "Seoul Botanic garden",
+    "year": 2021,
+    "thumb": "/img/thumbnail/mapping/seoul.png"
   }
 ]

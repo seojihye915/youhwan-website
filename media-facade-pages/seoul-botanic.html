@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Seoul Botanic Park — YOUHWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager-media.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <div class="spacer" aria-hidden="true"></div>
+      <section class="hero-video" aria-label="Project hero video">
+        <div class="hero-media">
+          <video
+            class="hero-video-el"
+            src="/video/highlight/mediafacade/seoul.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/img/thumbnail/mapping/seoul.png"
+          ></video>
+        </div>
+
+        <div class="hero-ui">
+          <nav class="crumb">
+            <a href="/media-facade.html">MEDIA FACADE</a> /
+          </nav>
+
+          <div class="hero-title-row">
+            <h1>Seoul Botanic Park</h1>
+            <button
+              class="hero-mute"
+              type="button"
+              aria-pressed="true"
+              aria-label="Sound off"
+            >
+              🔇
+            </button>
+          </div>
+          <div class="meta">Projection mapping · 2021 · Seoul, KR</div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      </section>
+
+      <ul class="credits">
+        <li>Artist: 유환 (YOUHWAN) & Lpers media art crew</li>
+        <li>Place: 서울식물원</li>
+        <li>Organizer: 서울식물원</li>
+        <li>Cooperation: Film/APLAN COMPANY</li>
+      </ul>
+      <!-- ...비디오/설명/스틸컷... -->
+      <!-- 비디오1 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="NjW1j7kSExc"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/NjW1j7kSExc/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="desc">
+        <h5>What for?</h5>
+        <p>
+          가장 고요하면서도 깊은 그들에게 우린 빛으로 소통 하기로 했다. 존재
+          만으로도 사람들에게 치유를 전달해주는 그들은 많은 빛을 담고 있었다.
+          서로가 영감을 주는 진정한 소통.
+        </p>
+      </section>
+      <!-- 스틸컷 -->
+      <section class="stills is-uniform">
+        <img
+          src="/img/work-facade/seoul/s1.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/seoul/s2.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/seoul/s3.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/seoul/s4.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/seoul/s5.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/seoul/s6.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="/media-facade/html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+    </main>
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+
+        const id = btn.dataset.yt;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
+      });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
+    </script>
+  </body>
+</html>
