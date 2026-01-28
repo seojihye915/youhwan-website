@@ -1,9 +1,0 @@
-RewriteEngine On
-# 파일 이름 뒤에 .html이 없어도 해당 파일을 찾아줌
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}\.html -f
-RewriteRule ^(.*)$ $1.html [NC,L]
-
-# 만약 사용자가 .html을 직접 입력하면 제거하고 리다이렉트
-RewriteCond %{THE_REQUEST} /([^.]+)\.html [NC]
-RewriteRule ^(.*)\.html$ /$1 [L,R=301]
