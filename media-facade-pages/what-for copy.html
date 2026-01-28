@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Seoul Botanic Park — YOUHWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager-media.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <div class="spacer" aria-hidden="true"></div>
+      <section class="hero-video" aria-label="Project hero video">
+        <div class="hero-media">
+          <video
+            class="hero-video-el"
+            src="/video/highlight/mediafacade/seoul.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/img/thumbnail/mapping/whatfor.png"
+          ></video>
+        </div>
+
+        <div class="hero-ui">
+          <nav class="crumb">
+            <a href="/media-facade.html">MEDIA FACADE</a> /
+          </nav>
+
+          <div class="hero-title-row">
+            <h1>Seoul Botanic Park</h1>
+            <button
+              class="hero-mute"
+              type="button"
+              aria-pressed="true"
+              aria-label="Sound off"
+            >
+              🔇
+            </button>
+          </div>
+          <div class="meta">Projection mapping · 2021 · Seoul, KR</div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      </section>
+      <header class="work-head">
+        <nav class="crumb">
+          <a href="/media-facade.html">MEDIA FACADE</a> / Proportion
+        </nav>
+        <h1>Proportion (ETERNO CHEONGDAM)</h1>
+        <div class="meta">Media Facade · 2024 · Seoul, KR</div>
+      </header>
+      <ul class="credits">
+        <li>Artist: 유환 (YOUHWAN) & Lpers media art crew</li>
+        <li>Place: 박정희 체육관</li>
+        <li>Organizer: 구미시</li>
+        <li>Cooperation: Film/APLAN COMPANY</li>
+      </ul>
+      <!-- ...비디오/설명/스틸컷... -->
+      <!-- 비디오1 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="UksMXJftyM8"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/UksMXJftyM8/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- 비디오2 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="xgVAPtb-Psk"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/xgVAPtb-Psk/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+
+      <section class="desc">
+        <h5>What for?</h5>
+        <p>
+          26,000원 목숨 값. 예술이 행해지는 공간과 맞닿은 곳에 초라한 죽음이
+          있었다. 누구를 위한 예술이고 무엇을 위한 예술일까. 타인의 상처 위에
+          만들어진 가식적인 작품들보다 아픔을 사랑할 줄 아는 사람들의 삶이
+          작품이고 예술이 아닐까. 26,000원 목숨 값 이라는 문구가 폭포처럼 거꾸로
+          흐르고 그 위에 아이들은 뛰어놀고 있다. 역설적인 공간. 그들의 행복이
+          흐르는 길 위 만이 폭포는 거꾸로 흐른다.
+        </p>
+        <br />
+        There was a shabby death in contact with the space where art was
+        performed. Who is it for and what is it for? Isn't the life of people
+        who know how to love pain more than pretentious works made based on the
+        wounds of others an art? The phrase "26,000 won worth of life" flows
+        upside down like a waterfall. The children are running around on it.
+        paradoxical space. The waterfall flows upside down on the road where
+        their happiness flows.
+      </section>
+      <!-- 스틸컷 -->
+      <section class="stills is-uniform">
+        <img
+          src="/img/work-facade/whatfor/w1.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/whatfor/w2.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/whatfor/w3.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/whatfor/w4.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="/media-facade/html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+    </main>
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+
+        const id = btn.dataset.yt;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
+      });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
+    </script>
+  </body>
+</html>
