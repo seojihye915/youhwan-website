@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>vestiges — YOUHWAN</title>
+    <title>Vestiges — YOUHWAN</title>
 
     <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="/work-detail.css" />
@@ -15,23 +15,45 @@
   <body class="work">
     <main>
       <div class="spacer" aria-hidden="true"></div>
+      <section class="hero-video" aria-label="Project hero video">
+        <div class="hero-media">
+          <video
+            class="hero-video-el"
+            src="/video/highlight/mediafacade/ulsan.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/img/thumbnail/mapping/eterno.jpg"
+          ></video>
+        </div>
 
-      <header class="work-head">
-        <nav class="crumb">
-          <a href="/media-facade.html">MEDIA FACADE</a> / vestiges
-        </nav>
-        <h1>
-          Ulsan Bangudae Petroglyphs 50th Anniversary“Petroglyphs and Sacred
-          Space”
-        </h1>
-        <div class="meta">Media Facade · 2022 · Ulsan, KR</div>
-      </header>
+        <div class="hero-ui">
+          <nav class="crumb">
+            <a href="/media-facade.html">MEDIA FACADE</a> /
+          </nav>
+
+          <div class="hero-title-row">
+            <h1>Vestiges</h1>
+            <button
+              class="hero-mute"
+              type="button"
+              aria-pressed="true"
+              aria-label="Sound off"
+            >
+              🔇
+            </button>
+          </div>
+          <div class="meta">Media Facade · 2022 · Ulsan, KR</div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      </section>
       <ul class="credits">
-        <!-- <li>Art Director: 유환 (HWAN)</li> -->
-        <li>Media artist : 유환 (YOUHWAN)</li>
-        <li>Sound: Neo303</li>
-        <li>Art production company: Aplan company</li>
-        <li>Venue: Ulsan City Council</li>
+        <li>Artist: 유환 (YOUHWAN)</li>
+        <li>Place: 울산 시의회</li>
+        <li>Organizer: 울산 시의회</li>
+        <li>Cooperation: APLAN COMPANY</li>
       </ul>
       <!-- ...비디오/설명/스틸컷... -->
       <!-- 비디오1 -->
@@ -50,11 +72,22 @@
         </div>
       </section>
       <section class="desc">
-        <h5>vestiges'</h5>
+        <h5>흔적 : vestiges</h5>
         <p>
-          In the cycle where countless traces are erased and born anew, we exist
-          within the irony of both forgetting and learning. All emotions and the
-          marks of time, too, dwell within the irony of essence. <br />
+          본 작업은 울산 반구대 암각화 50주년을 맞아 ‘암각화와 신성한
+          공간’이라는 주제를 통해 흔적과 망각, 학습과 재발견이 반복되는 시간의
+          구조를 조명한다. 암각화는 고정된 과거의 이미지가 아니라, 지워지고 다시
+          드러나는 과정 속에서 인간이 무엇을 기억하고 무엇을 잊는지 보여주는
+          매개다. 자연의 풍화와 시대의 조건 속에서 흔적은 사라지거나 겹쳐지며
+          새로운 층위를 만든다. 우리는 그 과정에서 망각을 겪지만, 동시에 그 망각
+          위에서 다시 의미를 구성한다. 이 작업은 기억이 축적만이 아니라 부재와
+          재해석을 포함한 운동이라는 점에 주목한다. 여기서 ‘신성한 공간’은
+          종교적 상징이 아니라, 감각과 태도를 바꾸는 장소의 힘이다. 반구대의
+          바위면은 한 번에 완결되는 화면이 아니라, 서로 다른 시간의 흔적들이
+          교차하는 경계이며, 관객은 무엇을 보았는지와 동시에 무엇을 놓쳤는지를
+          자각하게 된다. 작품은 이러한 경험을 통해, 감정과 시대의 흔적 또한
+          지워짐과 재등장의 반복 속에서만 형태를 갖는다는 ‘본질의 아이러니’를
+          제안한다.
         </p>
       </section>
       <!-- 비디오2 -->
@@ -74,20 +107,30 @@
       </section>
 
       <!-- 스틸컷 -->
-      <section class="stills">
+      <section class="stills stills--3">
         <img
-          src="../img/work-facade/ulsan50/VESTIGES1.jpg"
+          src="/img/work-facade/ulsan50/v1.png"
           alt="ENCAGED.2 still 1"
           loading="lazy"
         />
         <img
-          src="../img/work-facade/ulsan50/VESTIGES2.jpg"
-          alt="ENCAGED.2 still 2"
+          src="/img/work-facade/ulsan50/v2.png"
+          alt="ENCAGED.2 still 1"
           loading="lazy"
         />
         <img
-          src="../img/work-facade/light_busan/해운대 라이팅3.png"
-          alt="ENCAGED.2 still 2"
+          src="/img/work-facade/ulsan50/v3.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/ulsan50/v4.jpg"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/ulsan50/v.jpg"
+          alt="ENCAGED.2 still 1"
           loading="lazy"
         />
       </section>
@@ -99,23 +142,45 @@
         <a class="next" href="#" style="visibility: hidden">Next →</a>
       </nav>
     </main>
-    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
     <script>
       document.addEventListener("click", (e) => {
         const btn = e.target.closest(".video-lazy");
         if (!btn) return;
+
         const id = btn.dataset.yt;
-        const wrapper = btn.parentElement; // .ratio
-        wrapper.innerHTML = `
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-                  title="${btn.dataset.title || "Video"}"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>`;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
       });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
     </script>
   </body>
 </html>
