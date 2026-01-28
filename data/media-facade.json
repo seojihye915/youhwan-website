@@ -30,16 +30,16 @@
     "thumb": "/img/thumbnail/mapping/eterno.jpg"
   },
   {
-    "file": "light_busan.html",
-    "title": "Light festival Busan",
-    "year": 2023,
-    "thumb": "/img/thumbnail/mapping/light_busan.jpg"
-  },
-  {
     "file": "cycle.html",
     "title": "Cycle, section",
     "year": 2024,
     "thumb": "/img/thumbnail/mapping/cycle.jpg"
+  },
+  {
+    "file": "resistance.html",
+    "title": "Resistance of Light",
+    "year": 2022,
+    "thumb": "/img/thumbnail/mapping/resistance.png"
   },
   {
     "file": "ulsan50.html",

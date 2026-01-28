@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Resistance of Light — YOUHWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <!-- 고정 헤더 높이만큼 여백 -->
+      <div class="spacer" aria-hidden="true"></div>
+
+      <section class="hero-video" aria-label="Project hero video">
+        <div class="hero-media">
+          <video
+            class="hero-video-el"
+            src="/video/highlight/mediafacade/resistance.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/img/thumbnail/mapping/resistance.png"
+          ></video>
+        </div>
+
+        <div class="hero-ui">
+          <nav class="crumb">
+            <a href="/media-facade.html">MEDIA FACADE</a> /
+          </nav>
+
+          <div class="hero-title-row">
+            <h1>Resistance of Light</h1>
+            <button
+              class="hero-mute"
+              type="button"
+              aria-pressed="true"
+              aria-label="Sound off"
+            >
+              🔇
+            </button>
+          </div>
+          <div class="meta">Media facade · 2022 · Seoul, KR</div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      </section>
+
+      <ul class="credits">
+        <li>Creative Director: 유환 (YOUHWAN)</li>
+        <li>Tech Director: 유환 (YOUHWAN)</li>
+        <li>Place: 서대문 형무소</li>
+        <li>Organizer: 서대문구, 서대문 형무소</li>
+        <li>Art production compnay : APLAN COMPANY</li>
+      </ul>
+
+      <!-- 설명 -->
+      <section class="desc">
+        <h5>빛의 항거 (Resistance of Light)</h5>
+        <p>
+          ‘빛의 항거’ 는 평화, 시련, 신념, 해방으로 구성 된 8분 15초의 미디어
+          파사드 공연이다. 광복 77 주년을 맞아 서대문 형무소에서 선보인 이
+          작품은, 우리나라 독립을 위해 투쟁하던 선조들의 얼을 미디어 아트로
+          담았다. 공연은 1908년도의 시대로 돌아가며 시작된다. 평화 파트에선 파랑
+          나비와 빨강 나비가 평화롭게 돌아다니던 시절이 일본 군사들에게 짓밟히고
+          일제강점기가 시작됨을 알린다. 시련 파트에선 옥중에서 겪는 아픔과
+          투쟁을 그림자아트로 표현 하였고, 타벽 통보법을 통해 꺾이지 않는 신념을
+          오디오 비쥬얼로 표현하였다. 특유의 한국의 악기를 사용하여 현대적인
+          사운드를 제작한 것도 이 파트의 포인트다. 신념 파트에선 별들이 된 독립
+          투사 분들을 표현 하였고 자수정을 통해 굳은 의지를, 빨강과 파랑의
+          핏줄을 통해 두근거리는 마음을 표현하였다. 또한 서대문 형무소 건물의
+          특징들을 살려 비쥬얼 아트로 접근했다. 해방 파트에선 감옥을 두드리다
+          결국 부숴버리면서 ‘대한 독립 만세’ 를 외친다. 이 사운드는 당시 실제
+          만세를 외치던 소리이다. 마지막으로 태극기가 서대문형무소에 걸리며
+          공연은 끝이난다.
+          <br />
+          <br />
+          It is a media facade called "Resistance of Light" designed to
+          celebrate the 77th anniversary of Korea's liberation from Japanese
+          colonial rule. Media art expresses the pain and noble beliefs of our
+          ancestors. The "Resistance of Light" performance is divided into four
+          parts: peace, ordeal, belief, and liberation. The place where the
+          media facade performance was held is Seodaemun Prison. This is where
+          our ancestors were forcibly brought in during the struggle for
+          independence during Japanese colonial era and actually imprisoned.
+        </p>
+      </section>
+
+      <!-- 스틸컷 -->
+      <section class="stills stills--3">
+        <img
+          src="/img/work-facade/resistance/re1.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/resistance/re2.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/resistance/re3.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/resistance/re4.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work-facade/resistance/re5.jpg"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="../installation.html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+      <div class="bottom-space" aria-hidden="true"></div>
+    </main>
+
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+
+        const id = btn.dataset.yt;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
+      });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
+    </script>
+  </body>
+</html>

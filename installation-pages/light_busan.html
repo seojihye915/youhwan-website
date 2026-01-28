@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Light festival Busan — YOUHWAN</title>
+
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/work-detail.css" />
+
+    <script src="/js/menu.js" defer></script>
+    <script src="/js/load-header.js" defer></script>
+    <script src="/js/pager-media.js" defer></script>
+  </head>
+  <body class="work">
+    <main>
+      <div class="spacer" aria-hidden="true"></div>
+      <section class="hero-video" aria-label="Project hero video">
+        <div class="hero-media">
+          <video
+            class="hero-video-el"
+            src="/video/highlight/installation/lighting-busan.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/img/thumbnail/mapping/eterno.jpg"
+          ></video>
+        </div>
+
+        <div class="hero-ui">
+          <nav class="crumb">
+            <a href="/media-facade.html">MEDIA FACADE</a> /
+          </nav>
+
+          <div class="hero-title-row">
+            <h1>Proportion</h1>
+            <button
+              class="hero-mute"
+              type="button"
+              aria-pressed="true"
+              aria-label="Sound off"
+            >
+              🔇
+            </button>
+          </div>
+          <div class="meta">Light Facade · 2023 · Busan, KR</div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      </section>
+
+      <ul class="credits">
+        <li>Artist: 유환 (YOUHWAN)</li>
+        <li>Place: 부산 해운대</li>
+        <li>Organizer: (주)에스티엔</li>
+      </ul>
+      <!-- ...비디오/설명/스틸컷... -->
+      <!-- 비디오3 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="W_Zk1DVFF7I"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/W_Zk1DVFF7I/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <section class="desc">
+        <h5>Cycle</h5>
+      </section>
+      <!-- 비디오1 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="RuOm1oc_MVQ"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/RuOm1oc_MVQ/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <section class="desc">
+        <h5>A Step Of Hope</h5>
+        <p>
+          Even in the rain, if you keep moving forward, the world you wished for
+          will unfold. <br />
+        </p>
+      </section>
+      <!-- 비디오2 -->
+      <section class="video">
+        <div class="ratio">
+          <button
+            class="video-lazy"
+            data-yt="6bIpE5JP0j0"
+            aria-label="Play video"
+            data-title="Rebirth teaser 2"
+          >
+            <img src="https://img.youtube.com/vi/6bIpE5JP0j0/hqdefault.jpg" />
+            alt="Rebirth teaser 2" loading="lazy">
+            <span class="play">▶</span>
+          </button>
+        </div>
+      </section>
+      <section class="desc">
+        <h5>Eyes, Water, People</h5>
+        <p>
+          A drop of water falls before my eyes. In proportion to the passing
+          time, unnecessary fragments pile up, frame by frame. This fleeting,
+          lucid moment pulls me back again. What meaning do those drifting
+          lights carry for me? The lights of Paris three years ago, and the
+          damp, trailing figures of Amsterdam’s streets, rewind themselves and
+          enter my space. There are too many useless things. And yet, I begin to
+          wonder—am I the one who makes them useless? <br />
+        </p>
+      </section>
+
+      <!-- 스틸컷 -->
+      <section class="stills stills--2">
+        <img
+          src="/img/work/light_busan/l1.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work/light_busan/l2.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work/light_busan/l3.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work/light_busan/l4.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work/light_busan/l5.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+        <img
+          src="/img/work/light_busan/l6.png"
+          alt="ENCAGED.2 still 1"
+          loading="lazy"
+        />
+      </section>
+
+      <!-- 이전 / 목록 / 다음 -->
+      <nav class="pager">
+        <a class="prev" href="#" style="visibility: hidden">← Prev</a>
+        <a class="back" href="/media-facade/html">Back to Works</a>
+        <a class="next" href="#" style="visibility: hidden">Next →</a>
+      </nav>
+    </main>
+    <script>
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".video-lazy");
+        if (!btn) return;
+
+        const id = btn.dataset.yt;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
+      });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
+    </script>
+  </body>
+</html>

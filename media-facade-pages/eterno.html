@@ -15,7 +15,40 @@
   <body class="work">
     <main>
       <div class="spacer" aria-hidden="true"></div>
+      <section class="hero-video" aria-label="Project hero video">
+        <div class="hero-media">
+          <video
+            class="hero-video-el"
+            src="/video/highlight/mediafacade/eterno.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+            poster="/img/thumbnail/mapping/eterno.jpg"
+          ></video>
+        </div>
 
+        <div class="hero-ui">
+          <nav class="crumb">
+            <a href="/media-facade.html">MEDIA FACADE</a> /
+          </nav>
+
+          <div class="hero-title-row">
+            <h1>Proportion</h1>
+            <button
+              class="hero-mute"
+              type="button"
+              aria-pressed="true"
+              aria-label="Sound off"
+            >
+              🔇
+            </button>
+          </div>
+          <div class="meta">Media Facade · 2024 · Seoul, KR</div>
+        </div>
+        <div class="hero-scroll" aria-hidden="true">Scroll</div>
+      </section>
       <header class="work-head">
         <nav class="crumb">
           <a href="/media-facade.html">MEDIA FACADE</a> / Proportion
@@ -24,11 +57,9 @@
         <div class="meta">Media Facade · 2024 · Seoul, KR</div>
       </header>
       <ul class="credits">
-        <li>Art Director: 유환 (YOUHWAN)</li>
-        <li>Media artist : 유환 (YOUHWAN)</li>
-        <!-- <li>Sound: Neo303</li> -->
-        <li>Art production company: Aplan company</li>
-        <li>Venue: ETERNO CHEONGDAM</li>
+        <li>Artist: 유환 (YOUHWAN)</li>
+        <li>Place: 에테르노 청담</li>
+        <li>Organizer: Aplan company</li>
       </ul>
       <!-- ...비디오/설명/스틸컷... -->
       <!-- 비디오1 -->
@@ -84,23 +115,45 @@
         <a class="next" href="#" style="visibility: hidden">Next →</a>
       </nav>
     </main>
-    <!-- ▶ 클릭 시에만 YouTube iframe 로드 -->
     <script>
       document.addEventListener("click", (e) => {
         const btn = e.target.closest(".video-lazy");
         if (!btn) return;
+
         const id = btn.dataset.yt;
-        const wrapper = btn.parentElement; // .ratio
-        wrapper.innerHTML = `
-              <div class="ratio">
-                <iframe
-                  src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
-                  title="${btn.dataset.title || "Video"}"
-                  loading="lazy"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-              </div>`;
+        const ratio = btn.closest(".ratio");
+        if (!ratio || ratio.dataset.loaded === "1") return;
+
+        ratio.dataset.loaded = "1"; // 중복 방지
+
+        ratio.innerHTML = `
+          <iframe
+            src="https://www.youtube.com/embed/${id}?autoplay=1&rel=0&modestbranding=1&playsinline=1"
+            title="${btn.dataset.title || "Video"}"
+            loading="lazy"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        `;
       });
+    </script>
+    <script>
+      const v = document.querySelector(".hero-video-el");
+      const btn = document.querySelector(".hero-mute");
+
+      if (v && btn) {
+        // 초기 표시 동기화
+        btn.textContent = v.muted ? "🔇" : "🔊";
+        btn.setAttribute("aria-pressed", String(v.muted));
+
+        btn.addEventListener("click", () => {
+          v.muted = !v.muted;
+          btn.setAttribute("aria-pressed", String(v.muted));
+          btn.setAttribute("aria-label", v.muted ? "Sound off" : "Sound on");
+          btn.textContent = v.muted ? "🔇" : "🔊";
+        });
+      }
     </script>
   </body>
 </html>
